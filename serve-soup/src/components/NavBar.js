@@ -1,13 +1,15 @@
 import React from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 class NavBar extends React.Component {
   render() {
     return (
       <div className="nav-container">
-        <img src="" alt="logo" />
-        <ul>
+        <Link exact to="/" activeClassName="nav-active-link">
+          <img className="nav-logo" src="./img/logo.png" alt="logo" />
+        </Link>
+        <ul className="nav-bar">
           <NavLink exact to="/" activeClassName="nav-active-link">
             View Inventory
           </NavLink>

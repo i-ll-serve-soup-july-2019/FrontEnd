@@ -9,16 +9,21 @@
 .nav-container {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  /* align-content: center; */
   background-color: #8cbd52;
-  padding: 15px 15px 0 15px;
+  /* padding: 5px 0; */
+}
 
+.nav-logo {
+  width: auto;
+  height: 45px;
+  margin: auto 10px;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-around;
-
+  margin: 0
 }
 
 .nav-active-link {
@@ -29,7 +34,6 @@
 .nav-container a {
   color: white;
   padding: 20px;
-  margin: 0 10px;
   text-decoration: none;
 }
 
