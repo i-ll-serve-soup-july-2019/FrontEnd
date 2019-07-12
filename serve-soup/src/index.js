@@ -8,6 +8,9 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducer";
 
+//ReactStrap
+import "bootstrap/dist/css/bootstrap.min.css";
+
 //Importing react router
 import { BrowserRouter as Router } from "react-router-dom";
 
