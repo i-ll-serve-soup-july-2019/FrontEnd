@@ -1,3 +1,37 @@
 .App {
   text-align: center;
 }
+
+.landing-page-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.landing-page-container nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-page-nav-logo {
+
+}
+
+.landing-page-nav-buttons {
+
+}
+
+.landing-page-hero {
+  height: 500px;
+  background-image: url('./images/landing-page-hero.jpg');
+  background-position: left top;
+}
+
+.landing-page-content {
+
+}
+
+.landing-page-footer {
+
+}
