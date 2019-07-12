@@ -17,3 +17,37 @@
 .inventory-list-container ul {
   text-align: left
 }
+
+/* navbar styling */
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #8cbd52;
+  padding: 15px 15px 0 15px;
+
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.nav-active-link {
+  background-color: red;
+
+}
+
+.nav-container a {
+  color: white;
+  padding: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.nav-container a:hover {
+  text-decoration: none;
+  color: white;
+}

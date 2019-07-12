@@ -1,8 +1,5 @@
 import React from "react";
 
-//implementing routing
-import { Link } from "react-router-dom";
-
 class InventoryList extends React.Component {
   //state is only for testing
   //use mapStateToProps when available
@@ -23,7 +20,6 @@ class InventoryList extends React.Component {
     return (
       <div className="inventory-list-container">
         <h2>Inventory List</h2>
-        <Link to="/addItem">Add</Link>
         {this.state.items.map(item => (
           <ul>
             <li>{item.name}</li>

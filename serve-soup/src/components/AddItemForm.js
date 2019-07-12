@@ -1,8 +1,5 @@
 import React from "react";
 
-//implementing routing
-import { Link } from "react-router-dom";
-
 //ReactBootStrap
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
@@ -25,7 +22,6 @@ class AddItemForm extends React.Component {
   render() {
     return (
       <div className="add-item-container">
-        <Link to="/">Home</Link>
         <Form onSubmit={this.submitHandler}>
           <FormGroup>
             <Label for="Current Stock">Current Stock</Label>
