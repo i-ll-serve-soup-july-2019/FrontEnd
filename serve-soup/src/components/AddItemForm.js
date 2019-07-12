@@ -3,26 +3,47 @@ import React from "react";
 //implementing routing
 import { Link } from "react-router-dom";
 
-//BootStrap
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+//ReactBootStrap
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class AddItemForm extends React.Component {
+  state = {
+    //create local state
+  };
+  //handler for input fields
+  changeHandler = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+    //call the action to pass the values from state
+  };
+
   render() {
     return (
       <div className="add-item-container">
         <Link to="/">Home</Link>
-        <Form>
+        <Form onSubmit={this.submitHandler}>
           <FormGroup>
             <Label for="Current Stock">Current Stock</Label>
             <Input
               type="text"
               name="current-stock"
               placeholder="Current Stock"
+              onChange={this.changeHandler}
             />
           </FormGroup>
           <FormGroup>
             <Label for="Category">Category</Label>
-            <Input type="text" name="category" placeholder="Category" />
+            <Input
+              type="text"
+              name="category"
+              placeholder="Category"
+              onChange={this.changeHandler}
+            />
           </FormGroup>
           <Button>Submit</Button>
         </Form>
@@ -31,4 +52,5 @@ class AddItemForm extends React.Component {
   }
 }
 
+//use connect
 export default AddItemForm;

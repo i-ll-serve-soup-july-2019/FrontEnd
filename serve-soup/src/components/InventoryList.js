@@ -4,6 +4,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class InventoryList extends React.Component {
+  //state is only for testing
+  //use mapStateToProps when available
   state = {
     items: [
       {
@@ -19,15 +21,20 @@ class InventoryList extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="inventory-list-container">
         <h2>Inventory List</h2>
         <Link to="/addItem">Add</Link>
         {this.state.items.map(item => (
-          <h4>{item.name}</h4>
+          <ul>
+            <li>{item.name}</li>
+          </ul>
         ))}
       </div>
     );
   }
 }
 
+//create mapStateToProps
+
+//Remember to use connect
 export default InventoryList;
