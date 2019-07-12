@@ -1,10 +1,18 @@
 import React from "react";
 
+//importing components
+import AddItemForm from "./AddItemForm";
+import InventoryList from "./InventoryList";
+
+//implementing routing
+import { Route } from "react-router-dom";
+
 class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Inventory</h1>
+        <Route exact path="/" component={InventoryList} />
+        <Route path="/addItem" component={AddItemForm} />
       </div>
     );
   }
