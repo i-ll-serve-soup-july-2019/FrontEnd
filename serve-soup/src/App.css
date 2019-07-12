@@ -3,20 +3,6 @@
 }
 
 
-.add-item-container {
-  max-width: 300px;
-  margin: 30px auto;
-
-}
-
-.inventory-list-container {
-  max-width: 300px;
-  margin: 30px auto;
-}
-
-.inventory-list-container ul {
-  text-align: left
-}
 
 /* navbar styling */
 
@@ -50,4 +36,37 @@
 .nav-container a:hover {
   text-decoration: none;
   color: white;
+}
+
+
+/* add item form styling */
+.add-item-container {
+  max-width: 300px;
+  margin: 30px auto;
+
+}
+
+
+/* inventory list styling */
+
+.inventory-list-container {
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.inventory-list-container ul {
+  text-align: left
+}
+
+.inventory-list-items {
+  display: flex;
+  justify-content: space-between
+}
+
+.inventory-list-container .far {
+  margin: 0 10px
+}
+
+.inventory-list-container .far:hover {
+  color: #8cbd52;
 }
