@@ -1,11 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 
 //ReactBootStrap
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { addItem } from "../actions";
 
 class AddItemForm extends React.Component {
   state = {
     //create local state
+    itemName: ""
   };
   //handler for input fields
   changeHandler = e => {
@@ -16,7 +19,7 @@ class AddItemForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    //call the action to pass the values from state
+    this.props.addItem({name: this.state.itemName});
   };
 
   render() {
@@ -24,20 +27,12 @@ class AddItemForm extends React.Component {
       <div className="add-item-container">
         <Form onSubmit={this.submitHandler}>
           <FormGroup>
-            <Label for="Current Stock">Current Stock</Label>
+            <Label for="Item Name">Item Name</Label>
             <Input
               type="text"
-              name="current-stock"
-              placeholder="Current Stock"
-              onChange={this.changeHandler}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="Category">Category</Label>
-            <Input
-              type="text"
-              name="category"
-              placeholder="Category"
+              name="itemName"
+              placeholder="Item Name"
+              value={this.state.itemName}
               onChange={this.changeHandler}
             />
           </FormGroup>
@@ -49,4 +44,4 @@ class AddItemForm extends React.Component {
 }
 
 //use connect
-export default AddItemForm;
+export default connect(null, {addItem})(AddItemForm);
