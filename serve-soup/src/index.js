@@ -1,15 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import thunk from "redux-thunk";
-import logger from "redux-logger";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import rootReducer from "./reducer";
-
-//ReactStrap
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Importing react router
 import { BrowserRouter as Router } from "react-router-dom";
