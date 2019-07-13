@@ -9,14 +9,16 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk, logger)
-);
+//Importing react router
+import { BrowserRouter as Router } from "react-router-dom";
+
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
