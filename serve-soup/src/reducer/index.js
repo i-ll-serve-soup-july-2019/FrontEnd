@@ -1,4 +1,4 @@
-import { ADD_ITEM_START, ADD_ITEM_SUCCESS } from '../actions';
+import { ADD_ITEM_START, ADD_ITEM_SUCCESS, DELETE_ITEM } from "../actions";
 
 const initialState = {
   inventoryItems: [
@@ -12,8 +12,7 @@ const initialState = {
       name: "Whole Milk"
     }
   ],
-  isFetching: false,
-
+  isFetching: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,13 +21,20 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case ADD_ITEM_SUCCESS:
       return {
         ...state,
         isFetching: false,
         inventoryItems: [...state.inventoryItems, action.payload]
-      }
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        inventoryItems: state.inventoryItems.filter(
+          (item, index) => action.payload !== index
+        )
+      };
     default:
       return state;
   }

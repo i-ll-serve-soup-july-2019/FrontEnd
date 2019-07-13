@@ -6,14 +6,14 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="nav-container">
-        <Link exact to="/">
+        <Link to="/">
           <img className="nav-logo" src="./img/logo.png" alt="logo" />
         </Link>
         <ul className="nav-bar">
-          <NavLink exact to="/" activeClassName="nav-active-link">
+          <NavLink exact to="/protected" activeClassName="nav-active-link">
             View Inventory
           </NavLink>
-          <NavLink to="/addItem" activeClassName="nav-active-link">
+          <NavLink to="/protected/addItem" activeClassName="nav-active-link">
             Add item
           </NavLink>
         </ul>
