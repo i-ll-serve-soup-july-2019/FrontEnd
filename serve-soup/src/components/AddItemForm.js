@@ -9,6 +9,7 @@ class AddItemForm extends React.Component {
   state = {
     //create local state
     itemName: ""
+    //add a successfull message when an item is added
   };
   //handler for input fields
   changeHandler = e => {
@@ -19,7 +20,10 @@ class AddItemForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.addItem({name: this.state.itemName});
+    this.props.addItem({ name: this.state.itemName });
+    this.setState({
+      itemName: ""
+    });
   };
 
   render() {
@@ -44,4 +48,7 @@ class AddItemForm extends React.Component {
 }
 
 //use connect
-export default connect(null, {addItem})(AddItemForm);
+export default connect(
+  null,
+  { addItem }
+)(AddItemForm);

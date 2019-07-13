@@ -6,18 +6,24 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 //importing connect
 import { connect } from "react-redux";
 
+import { deleteItem } from "../actions";
+
 class InventoryList extends React.Component {
   //state is only for testing
   //use mapStateToProps when available
-  state = {
+  state = {};
 
+  deleteHandler = index => {
+    console.log("Index to delete:", index);
+    this.props.deleteItem(index);
   };
+
   render() {
     return (
       <div className="inventory-list-container">
         <h2>Inventory List</h2>
-        {this.props.inventoryItems.map(item => (
-          <ListGroup>
+        {this.props.inventoryItems.map((item, index) => (
+          <ListGroup key={index}>
             <ListGroupItem>
               <div className="inventory-list-items">
                 {/* select button and item name  container*/}
@@ -30,7 +36,10 @@ class InventoryList extends React.Component {
                 <div>
                   <i className="far fa-edit" />
 
-                  <i className="far fa-trash-alt" />
+                  <i
+                    onClick={() => this.deleteHandler(index)}
+                    className="far fa-trash-alt"
+                  />
                 </div>
               </div>
             </ListGroupItem>
@@ -51,5 +60,5 @@ const mapStateToProps = state => {
 //Remember to use connect
 export default connect(
   mapStateToProps,
-  {}
+  { deleteItem }
 )(InventoryList);
