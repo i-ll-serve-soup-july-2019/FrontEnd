@@ -1,7 +1,7 @@
 .App {
   height: 100vh;
   display: flex;
-  color: black;
+  color: white;
 }
 
 .App__Aside {
@@ -11,7 +11,7 @@
 
 .App__Form {
   width: 100%;
-  background-color:  #8cbd52;
+  background-color: #8cbd52;
   padding: 25px 40px;
   overflow: auto;
 }
@@ -19,12 +19,12 @@
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10%;
+  margin-bottom: 0%;
 }
 
 .PageSwitcher__Item {
   background-color: black;
-  color:whitesmoke;
+  color: #9DA6B1;
   padding: 10px 25px;
   cursor: pointer;
   font-size: .9em;
@@ -36,7 +36,7 @@
 
 .PageSwitcher__Item--Active {
   background-color: black;
-  color: white;
+  color: #9DA6B1;
 }
 
 .PageSwitcher__Item:first-child {
@@ -53,13 +53,14 @@
 }
 
 .FormTitle {
-  color: #8cbd52;
+  color: black;
   font-weight: 300;
   margin-bottom: 50px;
+
 }
 
 .FormTitle__Link {
-  color: #8cbd52;
+  color:black;
   text-decoration: none;
   display: inline-block;
   font-size: 1.7em;
@@ -72,8 +73,11 @@
 }
 
 .FormTitle__Link--Active {
-  color: white;
-  border-bottom: 1px solid black;
+  color: black;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: start;
+
 }
 
 .FormField {
@@ -85,7 +89,8 @@
   display: block;
   text-transform: uppercase;
   font-size: .9em;
-  color: white;
+  color: black;
+  text-align: center;
 }
 .FormField__Input {
   width: 85%;
@@ -101,40 +106,26 @@
 }
 
 .FormField__Input::placeholder {
-  color: #616E7F;
+  color: black;
 }
 
-.FormField__Button {
-  background-color: black;
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 25px;
-  padding: 15px 70px;
-  font-size: .8em;
-  font-weight: 500;
-}
 
-.FormField__Link {
-  color: #66707D;
-  text-decoration: none;
-  display: inline-block;
-  border-bottom: 1.5px solid #225E62;
-  padding-bottom: 5px;
-}
+
+
 
 .FormField__CheckboxLabel {
-  color: #646F7D;
+  color: black;
   font-size: .9em;
 }
 
 .FormField__Checkbox {
   position: relative;
   top: 1.5px;
+  text-align: center;
 }
 
 .FormField__TermsLink {
-  color: white;
+  color: black;
   border-bottom: 1px solid #199087;
   text-decoration: none;
   display: inline-block;

@@ -1,4 +1,3 @@
-    
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import SignUpForm from './pages/SignUpForm';
@@ -13,9 +12,13 @@ class App extends Component {
         <div className="App">
           <div className="App__Aside"></div>
           <div className="App__Form">
-          <div className="PageSwitcher">
+            <div className="PageSwitcher">
                 <NavLink to="/sign-in" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign In</NavLink>
                 <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Sign Up</NavLink>
+              </div>
+
+              <div className="FormTitle">
+                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">I'll Serve-Soup</NavLink> 
               </div>
 
               <Route exact path="/" component={SignUpForm}>
