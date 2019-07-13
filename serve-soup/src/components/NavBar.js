@@ -6,7 +6,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="nav-container">
-        <Link exact to="/" activeClassName="nav-active-link">
+        <Link exact to="/">
           <img className="nav-logo" src="./img/logo.png" alt="logo" />
         </Link>
         <ul className="nav-bar">

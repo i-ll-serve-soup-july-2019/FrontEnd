@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 function App() {
   return (
     <div className="App">
+      {/* Homepage must be under the protected route  */}
       <HomePage />
     </div>
   );

@@ -3,6 +3,9 @@ import React from "react";
 //importing reactstrap components
 import { ListGroup, ListGroupItem } from "reactstrap";
 
+//importing connect
+import { connect } from "react-redux";
+
 class InventoryList extends React.Component {
   //state is only for testing
   //use mapStateToProps when available
@@ -49,6 +52,14 @@ class InventoryList extends React.Component {
 }
 
 //create mapStateToProps
+const mapStateToProps = state => {
+  return {
+    inventoryItems: state.inventoryItems
+  };
+};
 
 //Remember to use connect
-export default InventoryList;
+export default connect(
+  mapStateToProps,
+  {}
+)(InventoryList);
