@@ -45,7 +45,9 @@ class SignInForm extends Component {
                 <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
               </div>
 
-             
+              <div className="FormField">
+                  <button className="FormField__Button mr-20">Sign in </button> 
+              </div>
             </form>
           </div>
         );

@@ -56,7 +56,9 @@ class SignUpForm extends Component {
                 </label>
               </div>
 
-             
+              <div className="FormField">
+                  <button className="FormField__Button mr-20">Sign Up</button> 
+              </div>
             </form>
           </div>
         );
