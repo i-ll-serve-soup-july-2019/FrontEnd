@@ -275,3 +275,8 @@ table {
 sup {
   padding-left: 40px
 }
+
+.badge-warning {
+  color: red;
+  font-size: 50px
+}

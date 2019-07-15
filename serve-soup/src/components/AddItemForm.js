@@ -9,7 +9,8 @@ class AddItemForm extends React.Component {
   state = {
     //create local state
     itemName: "",
-    category: ""
+    category: "",
+    quantity: 0
     //add a successfull message when an item is added
   };
   //handler for input fields
@@ -24,11 +25,13 @@ class AddItemForm extends React.Component {
     // console.log("Category:", this.state.category);
     this.props.addItem({
       name: this.state.itemName,
-      category: this.state.category
+      category: this.state.category,
+      quantity: this.state.quantity
     });
     this.setState({
       itemName: "",
-      category: ""
+      category: "",
+      quantity: 0
     });
   };
 
@@ -60,6 +63,27 @@ class AddItemForm extends React.Component {
               <option>Dry Goods</option>
               <option>Spices/Herbs</option>
               <option>Produce</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="quantity">Quantity</Label>
+            <Input
+              type="select"
+              name="quantity"
+              value={this.state.quantity}
+              onChange={this.changeHandler}
+            >
+              <option>Select</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
             </Input>
           </FormGroup>
           <Button>Submit</Button>

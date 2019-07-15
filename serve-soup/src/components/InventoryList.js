@@ -1,7 +1,7 @@
 import React from "react";
 
 //importing reactstrap components
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { Table, Badge } from "reactstrap";
 
 //importing connect
 import { connect } from "react-redux";
@@ -22,30 +22,57 @@ class InventoryList extends React.Component {
     return (
       <div className="inventory-list-container">
         <h2>Inventory List</h2>
-        {this.props.inventoryItems.map((item, index) => (
-          <ListGroup key={index}>
-            <ListGroupItem>
-              <div className="inventory-list-items">
-                {/* select button and item name  container*/}
-                <div>
-                  <i className="far fa-circle" />
 
-                  <strong>{item.name} </strong>
-                  <sup> {item.category}</sup>
-                </div>
-                {/* edit and delete buttons container*/}
-                <div>
+        <Table>
+          <thead>
+            <tr>
+              <th>
+                <strong>Quantity</strong>
+              </th>
+              <th>
+                <strong>Item Name</strong>
+              </th>
+              <th>
+                <strong>Category</strong>
+              </th>
+              <th>
+                <strong>Actions</strong>
+              </th>
+            </tr>
+          </thead>
+          {this.props.inventoryItems.map((item, index) => (
+            <tbody key={index}>
+              <tr>
+                <th scope="row">
+                  <Badge
+                    pill
+                    /* This will color the quantity pill based on the 
+                    current ammount if is less than 5 will show color yellow and if less than 3 red
+                     */
+                    color={`${
+                      item.quantity > 3
+                        ? item.quantity > 5
+                          ? ""
+                          : "warning"
+                        : "danger"
+                    }`}
+                  >
+                    {item.quantity}
+                  </Badge>
+                </th>
+                <td>{item.name}</td>
+                <td>{item.category}</td>
+                <td>
                   <i className="far fa-edit" />
-
                   <i
                     onClick={() => this.deleteHandler(index)}
                     className="far fa-trash-alt"
                   />
-                </div>
-              </div>
-            </ListGroupItem>
-          </ListGroup>
-        ))}
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </Table>
       </div>
     );
   }
