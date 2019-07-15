@@ -49,6 +49,10 @@ class SignUpForm extends Component {
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
               </div>
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="Role">Enter your Role</label>
+                <input type="Role" id="Role" className="FormField__Input" placeholder="Enter your Role" name="role" value={this.state.role} onChange={this.handleChange} />
+              </div>
 
               <div className="FormField">
                 <label className="FormField__CheckboxLabel">
