@@ -3,13 +3,16 @@ import { ADD_ITEM_START, ADD_ITEM_SUCCESS, DELETE_ITEM } from "../actions";
 const initialState = {
   inventoryItems: [
     {
-      name: "Yellow onions"
+      name: "Yellow onions",
+      category: "produce"
     },
     {
-      name: "Potatos"
+      name: "Potatos",
+      category: "produce"
     },
     {
-      name: "Whole Milk"
+      name: "Whole Milk",
+      category: "Dairy"
     }
   ],
   isFetching: false
@@ -23,6 +26,7 @@ const reducer = (state = initialState, action) => {
         isFetching: true
       };
     case ADD_ITEM_SUCCESS:
+      // console.log("Reducer add:", action.payload);
       return {
         ...state,
         isFetching: false,

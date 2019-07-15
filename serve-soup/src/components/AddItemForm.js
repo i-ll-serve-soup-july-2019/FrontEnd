@@ -8,7 +8,8 @@ import { addItem } from "../actions";
 class AddItemForm extends React.Component {
   state = {
     //create local state
-    itemName: ""
+    itemName: "",
+    category: ""
     //add a successfull message when an item is added
   };
   //handler for input fields
@@ -20,9 +21,14 @@ class AddItemForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.addItem({ name: this.state.itemName });
+    // console.log("Category:", this.state.category);
+    this.props.addItem({
+      name: this.state.itemName,
+      category: this.state.category
+    });
     this.setState({
-      itemName: ""
+      itemName: "",
+      category: ""
     });
   };
 
@@ -39,6 +45,22 @@ class AddItemForm extends React.Component {
               value={this.state.itemName}
               onChange={this.changeHandler}
             />
+          </FormGroup>
+          <FormGroup>
+            <Label for="category">Category</Label>
+            <Input
+              type="select"
+              name="category"
+              value={this.state.category}
+              onChange={this.changeHandler}
+            >
+              <option>Select</option>
+              <option>Canned goods</option>
+              <option>Dairy</option>
+              <option>Dry Goods</option>
+              <option>Spices/Herbs</option>
+              <option>Produce</option>
+            </Input>
           </FormGroup>
           <Button>Submit</Button>
         </Form>

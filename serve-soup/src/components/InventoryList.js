@@ -30,7 +30,8 @@ class InventoryList extends React.Component {
                 <div>
                   <i className="far fa-circle" />
 
-                  {item.name}
+                  <strong>{item.name} </strong>
+                  <sup> {item.category}</sup>
                 </div>
                 {/* edit and delete buttons container*/}
                 <div>
