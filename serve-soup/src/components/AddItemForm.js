@@ -38,6 +38,7 @@ class AddItemForm extends React.Component {
   render() {
     return (
       <div className="add-item-container">
+        <h2>Add item</h2>
         <Form onSubmit={this.submitHandler}>
           <FormGroup>
             <Label for="Item Name">Item Name</Label>

@@ -4,12 +4,12 @@ const initialState = {
   inventoryItems: [
     {
       name: "Yellow onions",
-      category: "produce",
+      category: "Produce",
       quantity: 14
     },
     {
       name: "Potatos",
-      category: "produce",
+      category: "Produce",
       quantity: 4
     },
     {

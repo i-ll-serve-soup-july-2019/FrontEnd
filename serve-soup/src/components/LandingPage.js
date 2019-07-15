@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "reactstrap";
 import "../App.css";
+//importing link from react-router-dom
 import { Link } from "react-router-dom";
 
 const getStartedButtonStyle = {

@@ -6,13 +6,13 @@ import { Table, Badge } from "reactstrap";
 //importing connect
 import { connect } from "react-redux";
 
+//Importing deleteitem from actions
 import { deleteItem } from "../actions";
 
-class InventoryList extends React.Component {
-  //state is only for testing
-  //use mapStateToProps when available
-  state = {};
+//importing link from react-router-dom to redirect when the edit button is pressed
+import { Link } from "react-router-dom";
 
+class InventoryList extends React.Component {
   deleteHandler = index => {
     console.log("Index to delete:", index);
     this.props.deleteItem(index);
@@ -63,7 +63,9 @@ class InventoryList extends React.Component {
                 <td>{item.name}</td>
                 <td>{item.category}</td>
                 <td>
-                  <i className="far fa-edit" />
+                  <Link to={`/protected/edititem/${index}`}>
+                    <i className="far fa-edit" />
+                  </Link>
                   <i
                     onClick={() => this.deleteHandler(index)}
                     className="far fa-trash-alt"
