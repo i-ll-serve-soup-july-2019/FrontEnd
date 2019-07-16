@@ -19,7 +19,7 @@ class App extends Component {
               </div>
 
               <div className="FormTitle">
-                  <h2>I'll Serve-Soup</h2>
+                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">I'll Serve-Soup</NavLink> 
               </div>
 
               <Route exact path="/" component={SignUpForm}>
