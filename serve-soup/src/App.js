@@ -1,8 +1,10 @@
-    
+
 import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import SignUpForm from './pages/SignUpForm';
 import SignInForm from './pages/SignInForm';
+import HomePage from "./components/HomePage";
+import LandingPage from "./components/LandingPage";
 
 import './App.css';
 
@@ -19,15 +21,16 @@ class App extends Component {
               </div>
 
               <div className="FormTitle">
-                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">I'll Serve-Soup</NavLink> 
+                  <NavLink to="/sign-in" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">I'll Serve-Soup</NavLink>
               </div>
 
               <Route exact path="/" component={SignUpForm}>
               </Route>
               <Route path="/sign-in" component={SignInForm}>
               </Route>
+              <Route exact path="/" component={LandingPage} />
+              <Route path="/protected" component={HomePage} />
           </div>
-
         </div>
       </Router>
     );
