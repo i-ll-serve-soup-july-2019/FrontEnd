@@ -1,4 +1,9 @@
-import { ADD_ITEM_START, ADD_ITEM_SUCCESS, DELETE_ITEM } from "../actions";
+import {
+  ADD_ITEM_START,
+  ADD_ITEM_SUCCESS,
+  DELETE_ITEM
+  // UPDATE_ITEM
+} from "../actions";
 
 const initialState = {
   inventoryItems: [
@@ -42,6 +47,10 @@ const reducer = (state = initialState, action) => {
           (item, index) => action.payload !== index
         )
       };
+    // case UPDATE_ITEM:
+    //   return{
+    //     ...state,
+    //   }
     default:
       return state;
   }
