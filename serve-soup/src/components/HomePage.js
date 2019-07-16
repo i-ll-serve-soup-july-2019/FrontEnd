@@ -4,6 +4,7 @@ import React from "react";
 import AddItemForm from "./AddItemForm";
 import InventoryList from "./InventoryList";
 import NavBar from "./NavBar";
+import EditItem from "./EditItem";
 
 //implementing routing
 import { Route } from "react-router-dom";
@@ -15,6 +16,7 @@ class HomePage extends React.Component {
         <NavBar />
         <Route exact path="/protected" component={InventoryList} />
         <Route path="/protected/addItem" component={AddItemForm} />
+        <Route path="/protected/edititem/:item" component={EditItem} />
       </div>
     );
   }

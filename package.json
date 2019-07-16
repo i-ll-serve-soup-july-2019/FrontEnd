@@ -1,3 +1,6 @@
 {
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+    "start": "react-scripts start"
+  }
 }

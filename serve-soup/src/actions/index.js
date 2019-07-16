@@ -7,6 +7,7 @@ export const ADD_ITEM_FAILURE = "ADD_ITEM_FAILURE";
 export const DELETE_ITEM = "DELETE_ITEM";
 
 export const addItem = item => dispatch => {
+
   dispatch({ type: ADD_ITEM_START });
   // console.log("Action object", item);
   dispatch({ type: ADD_ITEM_SUCCESS, payload: item });
