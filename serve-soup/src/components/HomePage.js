@@ -13,8 +13,8 @@ class HomePage extends React.Component {
     return (
       <div>
         <NavBar />
-        <Route exact path="/" component={InventoryList} />
-        <Route path="/addItem" component={AddItemForm} />
+        <Route exact path="/protected" component={InventoryList} />
+        <Route path="/protected/addItem" component={AddItemForm} />
       </div>
     );
   }

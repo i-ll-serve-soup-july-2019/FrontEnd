@@ -1,19 +1,24 @@
-import { ADD_ITEM_START, ADD_ITEM_SUCCESS } from '../actions';
+import { ADD_ITEM_START, ADD_ITEM_SUCCESS, DELETE_ITEM } from "../actions";
 
 const initialState = {
   inventoryItems: [
     {
-      name: "Yellow onions"
+      name: "Yellow onions",
+      category: "produce",
+      quantity: 14
     },
     {
-      name: "Potatos"
+      name: "Potatos",
+      category: "produce",
+      quantity: 4
     },
     {
-      name: "Whole Milk"
+      name: "Whole Milk",
+      category: "Dairy",
+      quantity: 2
     }
   ],
-  isFetching: false,
-
+  isFetching: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,13 +27,21 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case ADD_ITEM_SUCCESS:
+      // console.log("Reducer add:", action.payload);
       return {
         ...state,
         isFetching: false,
         inventoryItems: [...state.inventoryItems, action.payload]
-      }
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        inventoryItems: state.inventoryItems.filter(
+          (item, index) => action.payload !== index
+        )
+      };
     default:
       return state;
   }

@@ -1,41 +1,78 @@
 import React from "react";
 
 //importing reactstrap components
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { Table, Badge } from "reactstrap";
 
 //importing connect
 import { connect } from "react-redux";
 
+import { deleteItem } from "../actions";
+
 class InventoryList extends React.Component {
   //state is only for testing
   //use mapStateToProps when available
-  state = {
+  state = {};
 
+  deleteHandler = index => {
+    console.log("Index to delete:", index);
+    this.props.deleteItem(index);
   };
+
   render() {
     return (
       <div className="inventory-list-container">
         <h2>Inventory List</h2>
-        {this.props.inventoryItems.map(item => (
-          <ListGroup>
-            <ListGroupItem>
-              <div className="inventory-list-items">
-                {/* select button and item name  container*/}
-                <div>
-                  <i className="far fa-circle" />
 
-                  {item.name}
-                </div>
-                {/* edit and delete buttons container*/}
-                <div>
+        <Table>
+          <thead>
+            <tr>
+              <th>
+                <strong>Quantity</strong>
+              </th>
+              <th>
+                <strong>Item Name</strong>
+              </th>
+              <th>
+                <strong>Category</strong>
+              </th>
+              <th>
+                <strong>Actions</strong>
+              </th>
+            </tr>
+          </thead>
+          {this.props.inventoryItems.map((item, index) => (
+            <tbody key={index}>
+              <tr>
+                <th scope="row">
+                  <Badge
+                    pill
+                    /* This will color the quantity pill based on the 
+                    current ammount if is less than 5 will show color yellow and if less than 3 red
+                     */
+                    color={`${
+                      item.quantity > 3
+                        ? item.quantity > 5
+                          ? ""
+                          : "warning"
+                        : "danger"
+                    }`}
+                  >
+                    {item.quantity}
+                  </Badge>
+                </th>
+                <td>{item.name}</td>
+                <td>{item.category}</td>
+                <td>
                   <i className="far fa-edit" />
-
-                  <i className="far fa-trash-alt" />
-                </div>
-              </div>
-            </ListGroupItem>
-          </ListGroup>
-        ))}
+                  <i
+                    onClick={() => this.deleteHandler(index)}
+                    className="far fa-trash-alt"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </Table>
       </div>
     );
   }
@@ -51,5 +88,5 @@ const mapStateToProps = state => {
 //Remember to use connect
 export default connect(
   mapStateToProps,
-  {}
+  { deleteItem }
 )(InventoryList);
