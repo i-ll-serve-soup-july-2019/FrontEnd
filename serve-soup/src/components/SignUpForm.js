@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import SignUpNav from "./SignUpNav";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import SignUpNav from './SignUpNav';
 
 class SignUpForm extends Component {
   constructor() {
     super();
 
     this.state = {
-      email: "",
-      password: "",
-      name: "",
+      email: '',
+      password: '',
+      name: '',
       hasAgreed: false
     };
 
@@ -19,7 +19,7 @@ class SignUpForm extends Component {
 
   handleChange(e) {
     let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
     let name = target.name;
 
     this.setState({
@@ -30,7 +30,7 @@ class SignUpForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
+    console.log('The form was submitted with the following data:');
     console.log(this.state);
   }
 
@@ -107,7 +107,7 @@ class SignUpForm extends Component {
                     value={this.state.hasAgreed}
                     onChange={this.handleChange}
                   />
-                  I agree all statements in{" "}
+                  I agree all statements in{' '}
                   <a href="" className="FormField__TermsLink">
                     terms of service
                   </a>

@@ -1,15 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 //ReactBootStrap
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { addItem } from "../actions";
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { addItem } from '../actions';
 
 class AddItemForm extends React.Component {
   state = {
     //create local state
-    itemName: "",
-    category: "",
+    itemName: '',
+    category: '',
     quantity: 0
     //add a successfull message when an item is added
   };
@@ -29,8 +29,8 @@ class AddItemForm extends React.Component {
       quantity: this.state.quantity
     });
     this.setState({
-      itemName: "",
-      category: "",
+      itemName: '',
+      category: '',
       quantity: 0
     });
   };
