@@ -20,7 +20,7 @@ class InventoryList extends React.Component {
 
   render() {
     return (
-      <div className="inventory-list-container">
+      <div className="inventory-list-container ">
         <h2>Inventory List</h2>
 
         <Table>

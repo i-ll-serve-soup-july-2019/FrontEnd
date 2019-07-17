@@ -5,7 +5,16 @@ import { NavLink } from "react-router-dom";
 class SignUpNav extends React.Component {
   render() {
     return (
-      <div>
+      <div className="nav-container">
+        <div className="FormTitle">
+          <NavLink
+            to="/"
+            activeClassName="FormTitle__Link--Active"
+            className="FormTitle__Link"
+          >
+            I'll Serve-Soup
+          </NavLink>
+        </div>
         <div className="PageSwitcher">
           <NavLink
             to="/sign-in"
@@ -21,15 +30,6 @@ class SignUpNav extends React.Component {
             className="PageSwitcher__Item"
           >
             Sign Up
-          </NavLink>
-        </div>
-        <div className="FormTitle">
-          <NavLink
-            to="/sign-in"
-            activeClassName="FormTitle__Link--Active"
-            className="FormTitle__Link"
-          >
-            I'll Serve-Soup
           </NavLink>
         </div>
       </div>

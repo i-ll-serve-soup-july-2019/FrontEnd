@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Route, Link, NavLink } from "react-router-dom";
-import SignUpForm from "./pages/SignUpForm";
-import SignInForm from "./pages/SignInForm";
+import { Route } from "react-router-dom";
+import SignUpForm from "./components/SignUpForm";
+import SignInForm from "./components/SignInForm";
 import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 

@@ -207,7 +207,7 @@ table {
   display: flex;
   justify-content: space-between;
   /* align-content: center; */
-  background-color: #8cbd52;
+  /* background-color: #8cbd52; */
   /* padding: 5px 0; */
 }
 
@@ -288,6 +288,12 @@ sup {
   color: black;
 }
 
+.protected {
+  /* background-color: rgba(0, 255, 128, 0.932); */
+  padding: 25px 40px;
+  /* height: 700px; */
+
+}
 
 
 .App__Form {
@@ -305,14 +311,16 @@ sup {
 }
 
 .PageSwitcher__Item {
-  background-color: black;
+  background-color: gray;
   color: white;
   padding: 10px 25px;
   cursor: pointer;
   font-size: .9em;
-  border: none;
-  outline: none;
-  display: inline-block;
+
+}
+
+.PageSwitcher__Item:hover {
+  color: white;
   text-decoration: none;
 }
 
@@ -335,6 +343,7 @@ sup {
   margin-bottom: 100px;
 }
 
+/* Signup-signin nav bar */
 .FormTitle {
   color: black;
   font-weight: 300;

@@ -33,7 +33,9 @@ const LandingPage = () => {
       <div className="landing-page-hero">
         <h1>Soup Kitchen Inventory Management</h1>
         <h2>Make Keeping Track Of Your Inventory A Breeze</h2>
-        <Button style={getStartedButtonStyle}>Get Started</Button>
+        <Link to="/sign-up">
+          <Button style={getStartedButtonStyle}>Get Started</Button>
+        </Link>
       </div>
       <div className="landing-page-content">
         <h3>Keeping Track of Inventory Can Be a Nightmare</h3>
