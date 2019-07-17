@@ -1,3 +1,8 @@
 {
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+ "start": "node index.js",
+ "heroku-postbuild": "cd client && yarn && yarn run build"
+
+}
 }
