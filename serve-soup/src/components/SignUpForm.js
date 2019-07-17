@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SignUpNav from './SignUpNav';
 
 //reactstrap
-import { Label, Input } from 'reactstrap';
+import { Label, Input, Spinner } from 'reactstrap';
 
 import { connect } from 'react-redux';
 
@@ -34,6 +34,16 @@ class SignUpForm extends Component {
   };
 
   render() {
+    if (this.props.isRegistering) {
+      return (
+        <div className="sign-up-container">
+          <div className="App__Form signup-spinner-container">
+            <Spinner style={{ width: '6rem', height: '6rem' }} color="light" />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="sign-up-container">
         <div className="App__Form">

@@ -34,6 +34,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    //Create new item section
     case ADD_ITEM_START:
       return {
         ...state,
@@ -53,6 +54,7 @@ const reducer = (state = initialState, action) => {
           (item, index) => action.payload !== index
         )
       };
+    //Register user section
     case REGISTER_USER_START:
       return {
         ...state,

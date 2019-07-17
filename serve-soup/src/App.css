@@ -416,7 +416,7 @@ sup {
   font-weight: 500;
 }
 
-.FormField__Link {
+.FormFielkkjkjld__Link {
   color: black;
   text-decoration: none;
   display: inline-block;
@@ -445,4 +445,9 @@ sup {
 
 sup {
   padding-left: 40px
+}
+
+
+.signup-spinner-container {
+  padding-top: 200px
 }
