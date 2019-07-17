@@ -1,29 +1,35 @@
 import {
   ADD_ITEM_START,
   ADD_ITEM_SUCCESS,
-  DELETE_ITEM
-  // UPDATE_ITEM
-} from "../actions";
+  DELETE_ITEM,
+  REGISTER_USER_START,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAILURE
+} from '../actions';
 
 const initialState = {
   inventoryItems: [
     {
-      name: "Yellow onions",
-      category: "Produce",
+      name: 'Yellow onions',
+      category: 'Produce',
       quantity: 14
     },
     {
-      name: "Potatos",
-      category: "Produce",
+      name: 'Potatos',
+      category: 'Produce',
       quantity: 4
     },
     {
-      name: "Whole Milk",
-      category: "Dairy",
+      name: 'Whole Milk',
+      category: 'Dairy',
       quantity: 2
     }
   ],
-  isFetching: false
+  isFetching: false,
+  isRegistering: false,
+  successfulRegistration: false,
+  message: '',
+  errorMessage: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -47,10 +53,27 @@ const reducer = (state = initialState, action) => {
           (item, index) => action.payload !== index
         )
       };
-    // case UPDATE_ITEM:
-    //   return{
-    //     ...state,
-    //   }
+    case REGISTER_USER_START:
+      return {
+        ...state,
+        isRegistering: true,
+        message: ''
+      };
+    case REGISTER_USER_SUCCESS:
+      // console.log('message from reducer', action.payload);
+      return {
+        ...state,
+        isRegistering: false,
+        message: action.payload,
+        successfulRegistration: true
+      };
+    case REGISTER_USER_FAILURE:
+      console.log('message from reducer', action.payload);
+      return {
+        ...state,
+        isRegistering: false,
+        errorMessage: action.payload
+      };
     default:
       return state;
   }

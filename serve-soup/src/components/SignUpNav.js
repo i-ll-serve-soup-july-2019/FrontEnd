@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from 'react-router-dom';
 
 class SignUpNav extends React.Component {
   render() {

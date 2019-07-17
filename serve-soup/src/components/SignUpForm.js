@@ -2,37 +2,36 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpNav from './SignUpNav';
 
+//reactstrap
+import { Label, Input } from 'reactstrap';
+
+import { connect } from 'react-redux';
+
+import { registerUser } from '../actions';
+
 class SignUpForm extends Component {
-  constructor() {
-    super();
+  state = {
+    email: '',
+    password: '',
+    name: '',
+    role: ''
+  };
 
-    this.state = {
-      email: '',
-      password: '',
-      name: '',
-      hasAgreed: false
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    let target = e.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    let name = target.name;
-
+  handleChange = e => {
+    console.log(e.target.value);
     this.setState({
-      [name]: value
+      [e.target.name]: e.target.value
     });
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
-
-    console.log('The form was submitted with the following data:');
-    console.log(this.state);
-  }
+    // console.log('handleSubmit:', { ...this.state });
+    this.props.registerUser({
+      ...this.state,
+      username: this.state.email
+    });
+  };
 
   render() {
     return (
@@ -84,21 +83,25 @@ class SignUpForm extends Component {
                 />
               </div>
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="role">
+                <Label className="FormField__Label" htmlFor="role">
                   Role
-                </label>
-                <input
-                  type="Role"
+                </Label>
+                <Input
+                  type="select"
                   id="Role"
                   className="FormField__Input"
                   placeholder="Enter your Role"
                   name="Role"
-                  value={this.state.Role}
+                  value={this.state.role}
                   onChange={this.handleChange}
-                />
+                >
+                  <option>Select</option>
+                  <option>Volunteer</option>
+                  <option>Soup Kitchen Manager</option>
+                </Input>
               </div>
 
-              <div className="FormField">
+              {/* <div className="FormField">
                 <label className="FormField__CheckboxLabel">
                   <input
                     className="FormField__Checkbox"
@@ -108,16 +111,15 @@ class SignUpForm extends Component {
                     onChange={this.handleChange}
                   />
                   I agree all statements in{' '}
-                  <a href="" className="FormField__TermsLink">
+                  <a href="#" className="FormField__TermsLink">
                     terms of service
                   </a>
                 </label>
-              </div>
+              </div> */}
 
               <div className="FormField">
-                <Link to="/sign-in">
-                  <button className="FormField__Button mr-20">Sign Up</button>
-                </Link>
+                <button className="FormField__Button mr-20">Sign Up</button>
+                <p>{`${this.props.errorMessage}`}</p>
               </div>
             </form>
           </div>
@@ -126,4 +128,17 @@ class SignUpForm extends Component {
     );
   }
 }
-export default SignUpForm;
+
+//create mapStateToProps
+const mapStateToProps = state => {
+  return {
+    isRegistering: state.isRegistering,
+    message: state.message,
+    errorMessage: state.errorMessage
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(SignUpForm);
