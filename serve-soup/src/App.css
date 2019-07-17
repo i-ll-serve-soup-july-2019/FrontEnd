@@ -412,7 +412,6 @@ sup {
   font-size: .9em;
 }
 
-<<<<<<< HEAD
 .FormField__Checkbox {
   position: relative;
   top: 1.5px;
@@ -425,8 +424,8 @@ sup {
   display: inline-block;
   padding-bottom: 2px;
   margin-left: 5px;
-=======
+}
+
 sup {
   padding-left: 40px
->>>>>>> 416f0c27d175421120125b7c7a317100a13adb12
 }
