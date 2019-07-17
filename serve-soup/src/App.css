@@ -281,7 +281,6 @@ sup {
   font-size: 50px
 }
 
-
 .sign-up-container {
   height: 100vh;
   display: flex;
@@ -295,6 +294,14 @@ sup {
 
 }
 
+.App {
+  height: 100vh;  display: flex;
+  color: black;
+}
+
+.App__Aside {
+  background-color: #66DAC7;
+}
 
 .App__Form {
   width: 1000%;
@@ -312,15 +319,17 @@ sup {
 
 .PageSwitcher__Item {
   background-color: gray;
+
   color: white;
   padding: 10px 25px;
   cursor: pointer;
   font-size: .9em;
-
 }
 
 .PageSwitcher__Item:hover {
-
+  border: none;
+  outline: none;
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -346,6 +355,7 @@ sup {
 /* Signup-signin nav bar */
 .FormTitle {
   color: black;
+
   font-weight: 300;
   margin-bottom: 50px;
   text-align: left;
@@ -446,3 +456,4 @@ sup {
 sup {
   padding-left: 40px
 }
+
