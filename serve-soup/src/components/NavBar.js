@@ -7,11 +7,7 @@ class NavBar extends React.Component {
     return (
       <div className="nav-container">
         <div className="FormTitle">
-          <Link
-            to="/"
-            activeClassName="FormTitle__Link--Active"
-            className="FormTitle__Link"
-          >
+          <Link to="/" className="FormTitle__Link">
             I'll Serve-Soup
           </Link>
         </div>
