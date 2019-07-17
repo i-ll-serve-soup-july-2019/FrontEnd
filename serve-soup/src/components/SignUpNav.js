@@ -1,19 +1,19 @@
 import React from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 class SignUpNav extends React.Component {
   render() {
     return (
       <div className="nav-container">
         <div className="FormTitle">
-          <NavLink
+          <Link
             to="/"
             activeClassName="FormTitle__Link--Active"
             className="FormTitle__Link"
           >
             I'll Serve-Soup
-          </NavLink>
+          </Link>
         </div>
         <div className="PageSwitcher">
           <NavLink

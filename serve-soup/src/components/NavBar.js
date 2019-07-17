@@ -7,13 +7,13 @@ class NavBar extends React.Component {
     return (
       <div className="nav-container">
         <div className="FormTitle">
-          <NavLink
+          <Link
             to="/"
             activeClassName="FormTitle__Link--Active"
             className="FormTitle__Link"
           >
             I'll Serve-Soup
-          </NavLink>
+          </Link>
         </div>
         <div className="PageSwitcher">
           <NavLink
