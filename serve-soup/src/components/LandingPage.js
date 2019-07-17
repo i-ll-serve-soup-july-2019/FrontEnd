@@ -22,8 +22,10 @@ const LandingPage = () => {
       <nav>
         <span className="landing-page-nav-logo">I'll Serve Soup</span>
         <div className="landing-page-nav-buttons">
-          <Button style={signInButtonStyle}>Sign In</Button>
-          <Link to="/protected">
+          <Link to="/sign-in">
+            <Button style={signInButtonStyle}>Sign In</Button>
+          </Link>
+          <Link to="/sign-up">
             <Button style={getStartedButtonStyle}>Get Started</Button>
           </Link>
         </div>
@@ -31,7 +33,9 @@ const LandingPage = () => {
       <div className="landing-page-hero">
         <h1>Soup Kitchen Inventory Management</h1>
         <h2>Make Keeping Track Of Your Inventory A Breeze</h2>
-        <Button style={getStartedButtonStyle}>Get Started</Button>
+        <Link to="/sign-up">
+          <Button style={getStartedButtonStyle}>Get Started</Button>
+        </Link>
       </div>
       <div className="landing-page-content">
         <h3>Keeping Track of Inventory Can Be a Nightmare</h3>

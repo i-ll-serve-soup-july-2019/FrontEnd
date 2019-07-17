@@ -207,7 +207,7 @@ table {
   display: flex;
   justify-content: space-between;
   /* align-content: center; */
-  background-color: #8cbd52;
+  /* background-color: #8cbd52; */
   /* padding: 5px 0; */
 }
 
@@ -242,7 +242,7 @@ table {
 
 /* add item form styling */
 .add-item-container {
-  max-width: 300px;
+  max-width: 800px;
   margin: 30px auto;
 
 }
@@ -251,7 +251,7 @@ table {
 /* inventory list styling */
 
 .inventory-list-container {
-  max-width: 500px;
+  max-width: 800px;
   margin: 30px auto;
 }
 
@@ -281,6 +281,19 @@ sup {
   font-size: 50px
 }
 
+.sign-up-container {
+  height: 100vh;
+  display: flex;
+  color: black;
+}
+
+.protected {
+  /* background-color: rgba(0, 255, 128, 0.932); */
+  padding: 25px 40px;
+  /* height: 700px; */
+
+}
+
 .App {
   height: 100vh;  display: flex;
   color: black;
@@ -305,11 +318,15 @@ sup {
 }
 
 .PageSwitcher__Item {
-  background-color: black;
+  background-color: gray;
+
   color: white;
   padding: 10px 25px;
   cursor: pointer;
   font-size: .9em;
+}
+
+.PageSwitcher__Item:hover {
   border: none;
   outline: none;
   display: inline-block;
@@ -325,6 +342,7 @@ sup {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
+
 .PageSwitcher__Item:last-child {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -334,11 +352,17 @@ sup {
   margin-bottom: 100px;
 }
 
+/* Signup-signin nav bar */
 .FormTitle {
-  color:black;
+  color: black;
+
   font-weight: 300;
   margin-bottom: 50px;
   text-align: left;
+}
+
+.FormTitle a:hover {
+  color: black
 }
 
 .FormTitle__Link {
@@ -363,6 +387,8 @@ sup {
 
 .FormField {
   margin-bottom: 40px;
+  max-width: 800px;
+  margin: 15px auto
 }
 
 .FormField__Label {
@@ -371,6 +397,7 @@ sup {
   font-size: .9em;
   color: black;
 }
+
 .FormField__Input {
   width: 85%;
   background-color: transparent;
@@ -429,3 +456,4 @@ sup {
 sup {
   padding-left: 40px
 }
+

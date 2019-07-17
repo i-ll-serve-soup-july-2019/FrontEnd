@@ -12,6 +12,15 @@ class EditItem extends React.Component {
     quantity: 0
     //add a successfull message when an item is added
   };
+  componentDidMount() {
+    const selectedItem = this.props.match.params.item;
+    this.setState({
+      itemName: this.props.inventoryItems[selectedItem].name,
+      category: this.props.inventoryItems[selectedItem].category,
+      quantity: this.props.inventoryItems[selectedItem].quantity
+    });
+  }
+
   //handler for input fields
   changeHandler = e => {
     this.setState({
@@ -21,17 +30,19 @@ class EditItem extends React.Component {
 
   updateHandler = e => {
     e.preventDefault();
-    // console.log("Category:", this.state.category);
-    // this.props.addItem({
+    console.log("Category:", this.state.quantity);
+    // this.props.updateItem({
     //   name: this.state.itemName,
     //   category: this.state.category,
     //   quantity: this.state.quantity
     // });
-    this.setState({
-      itemName: "",
-      category: "",
-      quantity: 0
-    });
+    // this.setState({
+    //   itemName: "",
+    //   category: "",
+    //   quantity: 0
+    // });
+
+    //Redirect user to view all items page after submition
   };
 
   render() {
@@ -46,14 +57,14 @@ class EditItem extends React.Component {
           //return the matching item to be updated
           if (`${index}` === selectedItem) {
             return (
-              <Form onSubmit={this.updateHandler}>
+              <Form onSubmit={this.updateHandler} key={index}>
                 <FormGroup>
                   <Label for="Item Name">Item Name</Label>
                   <Input
                     type="text"
                     name="itemName"
                     placeholder="Item Name"
-                    value={item.name}
+                    value={this.state.itemName}
                     onChange={this.changeHandler}
                   />
                 </FormGroup>
@@ -62,7 +73,7 @@ class EditItem extends React.Component {
                   <Input
                     type="select"
                     name="category"
-                    value={item.category}
+                    value={this.state.category}
                     onChange={this.changeHandler}
                   >
                     <option>Select</option>
@@ -78,7 +89,7 @@ class EditItem extends React.Component {
                   <Input
                     type="select"
                     name="quantity"
-                    value={item.quantity}
+                    value={this.state.quantity}
                     onChange={this.changeHandler}
                   >
                     <option>Select</option>
@@ -98,6 +109,7 @@ class EditItem extends React.Component {
               </Form>
             );
           }
+          return null;
         })}
       </div>
     );

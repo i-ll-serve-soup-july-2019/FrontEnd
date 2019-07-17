@@ -12,7 +12,7 @@ import { Route } from "react-router-dom";
 class HomePage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="protected">
         <NavBar />
         <Route exact path="/protected" component={InventoryList} />
         <Route path="/protected/addItem" component={AddItemForm} />

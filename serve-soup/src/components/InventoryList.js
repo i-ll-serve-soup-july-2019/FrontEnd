@@ -20,7 +20,7 @@ class InventoryList extends React.Component {
 
   render() {
     return (
-      <div className="inventory-list-container">
+      <div className="inventory-list-container ">
         <h2>Inventory List</h2>
 
         <Table>
@@ -63,6 +63,7 @@ class InventoryList extends React.Component {
                 <td>{item.name}</td>
                 <td>{item.category}</td>
                 <td>
+                  {/* When click edit the index will be pass in the url */}
                   <Link to={`/protected/edititem/${index}`}>
                     <i className="far fa-edit" />
                   </Link>

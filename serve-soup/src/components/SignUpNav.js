@@ -2,7 +2,7 @@ import React from "react";
 
 import { NavLink, Link } from "react-router-dom";
 
-class NavBar extends React.Component {
+class SignUpNav extends React.Component {
   render() {
     return (
       <div className="nav-container">
@@ -13,27 +13,24 @@ class NavBar extends React.Component {
         </div>
         <div className="PageSwitcher">
           <NavLink
-            exact
-            to="/protected"
+            to="/sign-in"
             activeClassName="PageSwitcher__Item--Active"
             className="PageSwitcher__Item"
           >
-            View Inventory
+            Sign In
           </NavLink>
           <NavLink
-            to="/protected/addItem"
+            exact
+            to="/sign-up"
             activeClassName="PageSwitcher__Item--Active"
             className="PageSwitcher__Item"
           >
-            Add item
+            Sign Up
           </NavLink>
-          <Link to="/sign-in" className="PageSwitcher__Item">
-            Sign Out
-          </Link>
         </div>
       </div>
     );
   }
 }
 
-export default NavBar;
+export default SignUpNav;
