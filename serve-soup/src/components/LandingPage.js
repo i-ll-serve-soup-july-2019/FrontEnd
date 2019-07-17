@@ -22,8 +22,10 @@ const LandingPage = () => {
       <nav>
         <span className="landing-page-nav-logo">I'll Serve Soup</span>
         <div className="landing-page-nav-buttons">
-          <Button style={signInButtonStyle}>Sign In</Button>
-          <Link to="/protected">
+          <Link to="/sign-in">
+            <Button style={signInButtonStyle}>Sign In</Button>
+          </Link>
+          <Link to="/sign-up">
             <Button style={getStartedButtonStyle}>Get Started</Button>
           </Link>
         </div>

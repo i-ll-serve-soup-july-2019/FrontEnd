@@ -1,21 +1,23 @@
-import React from "react";
-import "./App.css";
-
-//implementing routing
-import { Route } from "react-router-dom";
-
-//importing homepage component which includes
-//a list of items
+import React, { Component } from "react";
+import { Route, Link, NavLink } from "react-router-dom";
+import SignUpForm from "./pages/SignUpForm";
+import SignInForm from "./pages/SignInForm";
 import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 
-function App() {
-  return (
-    <div className="App">
-      <Route exact path="/" component={LandingPage} />
-      <Route path="/protected" component={HomePage} />
-    </div>
-  );
+import "./App.css";
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Route exact path="/sign-up" component={SignUpForm} />
+        <Route path="/sign-in" component={SignInForm} />
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/protected" component={HomePage} />
+      </div>
+    );
+  }
 }
 
 export default App;
