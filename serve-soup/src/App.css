@@ -377,6 +377,8 @@ sup {
 
 .FormField {
   margin-bottom: 40px;
+  max-width: 800px;
+  margin: 15px auto
 }
 
 .FormField__Label {

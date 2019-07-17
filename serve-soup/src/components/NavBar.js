@@ -27,6 +27,9 @@ class NavBar extends React.Component {
           >
             Add item
           </NavLink>
+          <Link to="/sign-in" className="PageSwitcher__Item">
+            Sign Out
+          </Link>
         </div>
       </div>
     );

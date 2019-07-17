@@ -106,7 +106,7 @@ class SignUpForm extends Component {
                     name="hasAgreed"
                     value={this.state.hasAgreed}
                     onChange={this.handleChange}
-                  />{" "}
+                  />
                   I agree all statements in{" "}
                   <a href="" className="FormField__TermsLink">
                     terms of service
