@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { axiosWithAuth } from '../components/axiosAuth';
 
 //adding new items
 export const ADD_ITEM_START = 'ADD_ITEM_START';
@@ -9,6 +10,11 @@ export const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE';
 export const REGISTER_USER_START = 'REGISTER_USER_START';
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
 export const REGISTER_USER_FAILURE = 'REGISTER_USER_FAILURE';
+
+//Login
+export const LOGIN_START = 'LOGIN_START';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 
@@ -38,4 +44,21 @@ export const registerUser = data => dispatch => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data.message })
     )
     .catch(err => dispatch({ type: REGISTER_USER_FAILURE, payload: err }));
+};
+
+//Loggin
+//Loggin endpoint "https://illservesoup.herokuapp.com/api/useraccounts/login"
+//    "username": string,
+//    "password": string
+
+export const login = (creds, props) => dispatch => {
+  dispatch({ type: LOGIN_START });
+  axiosWithAuth()
+    .post('https://illservesoup.herokuapp.com/api/useraccounts/login', creds)
+    .then(res => {
+      localStorage.setItem('userToken', res.data.token);
+      props.history.push('/protected');
+      dispatch({ type: LOGIN_SUCCESS });
+    })
+    .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 };

@@ -1,38 +1,49 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import SignUpNav from './SignUpNav';
 
+import { login } from '../actions';
+
+import { connect } from 'react-redux';
+
+import { Spinner } from 'reactstrap';
+
 class SignInForm extends Component {
-  constructor() {
-    super();
+  state = {
+    username: '',
+    password: ''
+  };
 
-    this.state = {
-      email: '',
-      password: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    let target = e.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    let name = target.name;
-
+  handleChange = e => {
+    // console.log(e.target.value);
     this.setState({
-      [name]: value
+      [e.target.name]: e.target.value
     });
-  }
+  };
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
 
-    console.log('The form was submitted with the following data:');
-    console.log(this.state);
-  }
+    // console.log('The form was submitted with the following data:');
+    // console.log(this.state);
+    this.props.login(
+      {
+        ...this.state
+      },
+      { ...this.props }
+    );
+  };
 
   render() {
+    if (this.props.loginStart) {
+      return (
+        <div className="sign-up-container">
+          <div className="App__Form signup-spinner-container">
+            <Spinner style={{ width: '6rem', height: '6rem' }} color="light" />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="sign-up-container">
         <div className="App__Form">
@@ -42,11 +53,7 @@ class SignInForm extends Component {
             {/* Create a successful message when 
             user is redirected from the sign-up page */}
 
-            <form
-              onSubmit={this.handleSubmit}
-              className="FormFields"
-              onSubmit={this.handleSubmit}
-            >
+            <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">
                   E-Mail Address
@@ -56,8 +63,8 @@ class SignInForm extends Component {
                   id="email"
                   className="FormField__Input"
                   placeholder="Enter your email"
-                  name="email"
-                  value={this.state.email}
+                  name="username"
+                  value={this.state.username}
                   onChange={this.handleChange}
                 />
               </div>
@@ -78,9 +85,8 @@ class SignInForm extends Component {
               </div>
 
               <div className="FormField">
-                <Link to="/protected">
-                  <button className="FormField__Button mr-20">Sign In</button>
-                </Link>
+                <button className="FormField__Button mr-20">Sign In</button>
+                <p>{`${this.props.loginError}`}</p>
               </div>
             </form>
           </div>
@@ -90,4 +96,14 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm;
+const mapStateToProps = state => {
+  return {
+    loginStart: state.loginStart,
+    loginError: state.errorMessage
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(SignInForm);

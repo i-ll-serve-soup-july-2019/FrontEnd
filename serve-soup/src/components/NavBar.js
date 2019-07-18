@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
   render() {
@@ -27,7 +27,11 @@ class NavBar extends React.Component {
           >
             Add item
           </NavLink>
-          <Link to="/sign-in" className="PageSwitcher__Item">
+          <Link
+            to="/sign-in"
+            className="PageSwitcher__Item"
+            onClick={() => localStorage.setItem('userToken', '')}
+          >
             Sign Out
           </Link>
         </div>
