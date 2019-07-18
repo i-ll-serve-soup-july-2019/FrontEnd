@@ -26,23 +26,32 @@ export const addItem = item => dispatch => {
   dispatch({ type: ADD_ITEM_SUCCESS, payload: item });
 };
 
-export const deleteItem = index => dispatch => {
+ export const deleteItem = index => dispatch => {
   dispatch({ type: DELETE_ITEM, payload: index });
-};
+ };
+
+export const DeleteItem = item => dispatch => {
+  dispatch({ type:deleteItem});
+  axios
+  .post('https://illservesoup.herokuapp.com/api/inventory/:itemID',)
+
+}
 
 export const updateItem = item => dispatch => {
+  //Url needs the user ID and the item ID
   dispatch({ type: UPDATE_ITEM, payload: item });
 };
 
 //Register user
 
-export const registerUser = data => dispatch => {
+export const registerUser = (data, props) => dispatch => {
   dispatch({ type: REGISTER_USER_START });
   axios
     .post('https://illservesoup.herokuapp.com/api/useraccounts/register', data)
-    .then(res =>
-      dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data.message })
-    )
+    .then(res => {
+      dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data.message });
+      props.history.push('/sign-in');
+    })
     .catch(err => dispatch({ type: REGISTER_USER_FAILURE, payload: err }));
 };
 
