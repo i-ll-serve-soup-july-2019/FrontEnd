@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import SignUpNav from "./SignUpNav";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import SignUpNav from './SignUpNav';
 
 class SignInForm extends Component {
   constructor() {
     super();
 
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,7 +17,7 @@ class SignInForm extends Component {
 
   handleChange(e) {
     let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
     let name = target.name;
 
     this.setState({
@@ -28,7 +28,7 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
+    console.log('The form was submitted with the following data:');
     console.log(this.state);
   }
 
@@ -38,6 +38,10 @@ class SignInForm extends Component {
         <div className="App__Form">
           <div className="FormCenter">
             <SignUpNav />
+
+            {/* Create a successful message when 
+            user is redirected from the sign-up page */}
+
             <form
               onSubmit={this.handleSubmit}
               className="FormFields"
