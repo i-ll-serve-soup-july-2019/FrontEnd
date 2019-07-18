@@ -4,7 +4,10 @@ import {
   DELETE_ITEM,
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
-  REGISTER_USER_FAILURE
+  REGISTER_USER_FAILURE,
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE
 } from '../actions';
 
 const initialState = {
@@ -29,7 +32,10 @@ const initialState = {
   isRegistering: false,
   successfulRegistration: false,
   message: '',
-  errorMessage: ''
+  errorMessage: '',
+  loginStart: false,
+  token: '',
+  loginError: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -70,11 +76,29 @@ const reducer = (state = initialState, action) => {
         successfulRegistration: true
       };
     case REGISTER_USER_FAILURE:
-      console.log('message from reducer', action.payload);
+      // console.log('message from reducer', action.payload);
       return {
         ...state,
         isRegistering: false,
         errorMessage: action.payload
+      };
+    //Login
+    case LOGIN_START:
+      return {
+        ...state,
+        loginStart: true
+      };
+    case LOGIN_SUCCESS:
+      console.log('Reducer token', action.payload);
+      return {
+        ...state,
+        loginStart: false
+      };
+    case LOGIN_FAILURE:
+      console.log('Reducer token', action.payload);
+      return {
+        ...state,
+        loginError: action.payload
       };
     default:
       return state;
