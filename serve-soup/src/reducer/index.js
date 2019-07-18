@@ -98,6 +98,7 @@ const reducer = (state = initialState, action) => {
       console.log('Reducer token', action.payload);
       return {
         ...state,
+        loginStart: false,
         loginError: action.payload
       };
     default:
