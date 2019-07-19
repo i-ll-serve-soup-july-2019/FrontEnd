@@ -26,12 +26,12 @@ export const addItem = item => dispatch => {
   dispatch({ type: ADD_ITEM_SUCCESS, payload: item });
 };
 
- export const delete_Item = index => dispatch => {
-  dispatch({ type:delete_Item, payload: index });
+ export const deleteItem = index => dispatch => {
+  dispatch({ type: DELETE_ITEM, payload: index });
  };
 
-export const Delete_Item = item => dispatch => {
-  dispatch({ type:delete_Item});
+export const DeleteItem = item => dispatch => {
+  dispatch({ type:deleteItem});
   axios
   .post('https://illservesoup.herokuapp.com/api/inventory/:itemID',)
 
