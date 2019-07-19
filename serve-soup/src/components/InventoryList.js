@@ -7,7 +7,7 @@ import { Table, Badge } from "reactstrap";
 import { connect } from "react-redux";
 
 //Importing deleteitem from actions
-import { deleteItem } from "../actions";
+import { delete_Item } from "../actions";
 
 //importing link from react-router-dom to redirect when the edit button is pressed
 import { Link } from "react-router-dom";
@@ -91,5 +91,5 @@ const mapStateToProps = state => {
 //Remember to use connect
 export default connect(
   mapStateToProps,
-  { deleteItem }
+  { delete_Item }
 )(InventoryList);
