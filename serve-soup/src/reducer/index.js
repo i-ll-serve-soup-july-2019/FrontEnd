@@ -10,7 +10,9 @@ import {
   LOGIN_FAILURE,
   GET_ITEMS,
   GET_ITEMS_FAILURE,
-  GET_ITEMS_SUCCESS
+  GET_ITEMS_SUCCESS,
+  UPDATE_ITEM_START,
+  UPDATE_ITEM_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -23,7 +25,8 @@ const initialState = {
   loginStart: false,
   token: '',
   loginError: '',
-  username: ''
+  username: '',
+  updating: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -38,7 +41,7 @@ const reducer = (state = initialState, action) => {
       // console.log("Reducer add:", action.payload);
       return {
         ...state,
-        isFetching: false,
+        isFetching: false
       };
     case DELETE_ITEM:
       return {
@@ -105,6 +108,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         errorMessage: action.payload
+      };
+    case UPDATE_ITEM_START:
+      return {
+        ...state,
+        updating: true
+      };
+    case UPDATE_ITEM_SUCCESS:
+      return {
+        ...state,
+        updating: false
       };
     default:
       return state;
