@@ -7,27 +7,14 @@ import {
   REGISTER_USER_FAILURE,
   LOGIN_START,
   LOGIN_SUCCESS,
-  LOGIN_FAILURE
+  LOGIN_FAILURE,
+  GET_ITEMS,
+  GET_ITEMS_FAILURE,
+  GET_ITEMS_SUCCESS
 } from '../actions';
 
 const initialState = {
-  inventoryItems: [
-    {
-      name: 'Yellow onions',
-      category: 'Produce',
-      quantity: 14
-    },
-    {
-      name: 'Potatos',
-      category: 'Produce',
-      quantity: 4
-    },
-    {
-      name: 'Whole Milk',
-      category: 'Dairy',
-      quantity: 2
-    }
-  ],
+  inventoryItems: [],
   isFetching: false,
   isRegistering: false,
   successfulRegistration: false,
@@ -35,7 +22,8 @@ const initialState = {
   errorMessage: '',
   loginStart: false,
   token: '',
-  loginError: ''
+  loginError: '',
+  username: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -92,7 +80,8 @@ const reducer = (state = initialState, action) => {
       console.log('Reducer token', action.payload);
       return {
         ...state,
-        loginStart: false
+        loginStart: false,
+        username: action.payload
       };
     case LOGIN_FAILURE:
       console.log('Reducer token', action.payload);
@@ -100,6 +89,23 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginStart: false,
         loginError: action.payload
+      };
+    case GET_ITEMS:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case GET_ITEMS_SUCCESS:
+      return {
+        ...state,
+        inventoryItems: action.payload,
+        isFetching: false
+      };
+    case GET_ITEMS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload
       };
     default:
       return state;

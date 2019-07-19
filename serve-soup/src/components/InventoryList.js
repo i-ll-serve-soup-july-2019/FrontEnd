@@ -7,7 +7,7 @@ import { Table, Badge } from "reactstrap";
 import { connect } from "react-redux";
 
 //Importing deleteitem from actions
-import { deleteItem } from "../actions";
+import { deleteItem, getItems } from "../actions";
 
 //importing link from react-router-dom to redirect when the edit button is pressed
 import { Link } from "react-router-dom";
@@ -17,6 +17,10 @@ class InventoryList extends React.Component {
     console.log("Index to delete:", index);
     this.props.deleteItem(index);
   };
+
+  componentDidMount() {
+    this.props.getItems(localStorage.getItem('username'))
+  }
 
   render() {
     return (
@@ -46,7 +50,7 @@ class InventoryList extends React.Component {
                 <th scope="row">
                   <Badge
                     pill
-                    /* This will color the quantity pill based on the 
+                    /* This will color the quantity pill based on the
                     current ammount if is less than 5 will show color yellow and if less than 3 red
                      */
                     color={`${
@@ -84,12 +88,12 @@ class InventoryList extends React.Component {
 //create mapStateToProps
 const mapStateToProps = state => {
   return {
-    inventoryItems: state.inventoryItems
+    inventoryItems: state.inventoryItems,
   };
 };
 
 //Remember to use connect
 export default connect(
   mapStateToProps,
-  { deleteItem }
+  { deleteItem, getItems }
 )(InventoryList);

@@ -20,6 +20,11 @@ export const UPDATE_ITEM = 'UPDATE_ITEM';
 
 export const DELETE_ITEM = 'DELETE_ITEM';
 
+export const GET_ITEMS = 'GET_ITEMS';
+export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
+export const GET_ITEMS_FAILURE = 'GET_ITEMS_FAILURE';
+
+
 export const addItem = item => dispatch => {
   dispatch({ type: ADD_ITEM_START });
   // console.log("Action object", item);
@@ -59,8 +64,17 @@ export const login = (creds, props) => dispatch => {
     .post('https://illservesoup.herokuapp.com/api/useraccounts/login', creds)
     .then(res => {
       localStorage.setItem('userToken', res.data.token);
+      localStorage.setItem('username', creds.username);
       props.history.push('/protected');
-      dispatch({ type: LOGIN_SUCCESS });
+      dispatch({ type: LOGIN_SUCCESS, payload: creds.username});
     })
     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 };
+
+export const getItems = username => dispatch => {
+  dispatch({type: GET_ITEMS});
+  axiosWithAuth()
+    .get(`https://illservesoup.herokuapp.com/api/inventory/${username}`)
+    .then(res => dispatch({ type: GET_ITEMS_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({ type: GET_ITEMS_FAILURE, payload: err}))
+}
