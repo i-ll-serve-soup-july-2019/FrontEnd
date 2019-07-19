@@ -39,7 +39,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        inventoryItems: [...state.inventoryItems, action.payload]
       };
     case DELETE_ITEM:
       return {
