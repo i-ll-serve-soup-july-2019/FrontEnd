@@ -19,6 +19,8 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
+export const DELETE_ITEM_FAILURE = 'DELETE_ITEM_FAILURE';
 
 export const GET_ITEMS = 'GET_ITEMS';
 export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
@@ -28,11 +30,21 @@ export const GET_ITEMS_FAILURE = 'GET_ITEMS_FAILURE';
 export const addItem = item => dispatch => {
   dispatch({ type: ADD_ITEM_START });
   // console.log("Action object", item);
-  dispatch({ type: ADD_ITEM_SUCCESS, payload: item });
+  axiosWithAuth().post(`https://illservesoup.herokuapp.com/api/inventory/`, item)
+  .then(res => dispatch({ type: ADD_ITEM_SUCCESS, payload: res}))
+  .catch(err => dispatch({ type: ADD_ITEM_FAILURE, payload: err}))
+  ;
 };
 
-export const deleteItem = index => dispatch => {
-  dispatch({ type: DELETE_ITEM, payload: index });
+export const deleteItem = (item, props) => dispatch => {
+  dispatch({ type: DELETE_ITEM});
+  axiosWithAuth()
+    .delete(`https://illservesoup.herokuapp.com/api/inventory/${item.username}/${item.id}`)
+    .then(res => {
+      dispatch({ type: DELETE_ITEM_SUCCESS, payload: res});
+      props.history.push('/protected');
+    })
+    .catch(err => dispatch({ type: DELETE_ITEM_FAILURE, payload: err}))
 };
 
 export const updateItem = item => dispatch => {

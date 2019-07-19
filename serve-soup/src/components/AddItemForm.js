@@ -32,10 +32,10 @@ class AddItemForm extends React.Component {
     e.preventDefault();
     // console.log("Category:", this.state.category);
     this.props.addItem({
-      name: this.state.itemName,
-      category: this.state.category,
+      item: this.state.itemName,
+      units: this.state.category,
       quantity: this.state.quantity,
-      username: this.state.username
+      username: this.state.username,
     });
     this.setState({
       itemName: '',

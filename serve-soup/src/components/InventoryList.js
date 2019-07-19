@@ -13,13 +13,26 @@ import { deleteItem, getItems } from "../actions";
 import { Link } from "react-router-dom";
 
 class InventoryList extends React.Component {
-  deleteHandler = index => {
-    console.log("Index to delete:", index);
-    this.props.deleteItem(index);
+  state = {
+    inventoryItems: []
+  }
+
+  deleteHandler = (item) => {
+    console.log("Index to delete:", item);
+    this.props.deleteItem(item, { ...this.props });
   };
 
   componentDidMount() {
-    this.props.getItems(localStorage.getItem('username'))
+    this.props.getItems(localStorage.getItem('username'));
+    this.setState({
+      inventoryItems: this.props.inventoryItems
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.inventoryItems === prevProps.inventoryItems) {
+      this.props.getItems(localStorage.getItem('username'))
+    }
   }
 
   render() {
@@ -64,7 +77,7 @@ class InventoryList extends React.Component {
                     {item.quantity}
                   </Badge>
                 </th>
-                <td>{item.name}</td>
+                <td>{item.item}</td>
                 <td>{item.category}</td>
                 <td>
                   {/* When click edit the index will be pass in the url */}
@@ -72,7 +85,7 @@ class InventoryList extends React.Component {
                     <i className="far fa-edit" />
                   </Link>
                   <i
-                    onClick={() => this.deleteHandler(index)}
+                    onClick={() => this.deleteHandler(item)}
                     className="far fa-trash-alt"
                   />
                 </td>
