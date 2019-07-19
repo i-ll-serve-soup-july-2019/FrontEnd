@@ -27,11 +27,11 @@ export const addItem = item => dispatch => {
 };
 
  export const deleteItem = index => dispatch => {
-  dispatch({ type: DELETE_ITEM, payload: index });
+  dispatch({ type: deleteItem, payload: index });
  };
 
 export const DeleteItem = item => dispatch => {
-  dispatch({ type:deleteItem});
+  dispatch({ type:DeleteItem});
   axios
   .post('https://illservesoup.herokuapp.com/api/inventory/:itemID',)
 
