@@ -50,7 +50,7 @@ class SignInForm extends Component {
           <div className="FormCenter">
             <SignUpNav />
 
-            {/* Create a successful message when 
+            {/* Create a successful message when
             user is redirected from the sign-up page */}
 
             <form onSubmit={this.handleSubmit} className="FormFields">
@@ -59,7 +59,7 @@ class SignInForm extends Component {
                   E-Mail Address
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   className="FormField__Input"
                   placeholder="Enter your email"
