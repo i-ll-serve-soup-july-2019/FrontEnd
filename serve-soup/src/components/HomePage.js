@@ -14,7 +14,7 @@ class HomePage extends React.Component {
     return (
       <div className="protected">
         <NavBar />
-        <Route exact path="/protected" component={InventoryList} />
+        <Route exact path="/protected" render={props => <InventoryList {...props} />} />
         <Route path="/protected/addItem" component={AddItemForm} />
         <Route path="/protected/edititem/:item" component={EditItem} />
       </div>

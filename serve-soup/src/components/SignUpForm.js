@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SignUpNav from './SignUpNav';
 
 //reactstrap
-import { Label, Input, Spinner } from 'reactstrap';
+import { Label, Input, Spinner, FormGroup } from 'reactstrap';
 
 import { connect } from 'react-redux';
 
@@ -26,10 +26,13 @@ class SignUpForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     // console.log('handleSubmit:', { ...this.state });
-    this.props.registerUser({
-      ...this.state,
-      username: this.state.email
-    });
+    this.props.registerUser(
+      {
+        ...this.state,
+        username: this.state.email
+      },
+      { ...this.props }
+    );
   };
 
   render() {
@@ -92,22 +95,21 @@ class SignUpForm extends Component {
                 />
               </div>
               <div className="FormField">
-                <Label className="FormField__Label" htmlFor="role">
-                  Role
-                </Label>
-                <Input
-                  type="select"
-                  id="Role"
-                  className="FormField__Input"
-                  placeholder="Enter your Role"
-                  name="Role"
-                  value={this.state.role}
-                  onChange={this.handleChange}
-                >
-                  <option>Select</option>
-                  <option>Volunteer</option>
-                  <option>Soup Kitchen Manager</option>
-                </Input>
+                <FormGroup>
+                  <Label for="role" className="FormField__Label">
+                    Role
+                  </Label>
+                  <Input
+                    type="select"
+                    name="role"
+                    value={this.state.role}
+                    onChange={this.handleChange}
+                  >
+                    <option>Select</option>
+                    <option>Volunteer</option>
+                    <option>Soup Kitchen Manager</option>
+                  </Input>
+                </FormGroup>
               </div>
 
               {/* <div className="FormField">

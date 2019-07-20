@@ -10,9 +10,17 @@ class AddItemForm extends React.Component {
     //create local state
     itemName: '',
     category: '',
-    quantity: 0
+    quantity: 0,
+    username: ''
     //add a successfull message when an item is added
   };
+
+  componentDidMount() {
+    this.setState({
+      username: localStorage.getItem('username')
+    })
+  }
+
   //handler for input fields
   changeHandler = e => {
     this.setState({
@@ -24,14 +32,15 @@ class AddItemForm extends React.Component {
     e.preventDefault();
     // console.log("Category:", this.state.category);
     this.props.addItem({
-      name: this.state.itemName,
-      category: this.state.category,
-      quantity: this.state.quantity
+      item: this.state.itemName,
+      units: this.state.category,
+      quantity: this.state.quantity,
+      username: this.state.username,
     });
     this.setState({
       itemName: '',
       category: '',
-      quantity: 0
+      quantity: 0,
     });
   };
 
@@ -94,8 +103,14 @@ class AddItemForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    username: state.username
+  };
+};
+
 //use connect
 export default connect(
-  null,
+  mapStateToProps,
   { addItem }
 )(AddItemForm);
