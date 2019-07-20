@@ -5,7 +5,7 @@ import { login } from '../actions';
 
 import { connect } from 'react-redux';
 
-import { Spinner } from 'reactstrap';
+import { Spinner, Alert } from 'reactstrap';
 
 class SignInForm extends Component {
   state = {
@@ -66,6 +66,7 @@ class SignInForm extends Component {
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
 
@@ -81,12 +82,19 @@ class SignInForm extends Component {
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
 
               <div className="FormField">
                 <button className="FormField__Button mr-20">Sign In</button>
-                <p>{`${this.props.loginError}`}</p>
+
+                {/* Display a successful message if item was created or the button */}
+                {this.props.loginError && (
+                  <Alert color="danger">Wrong Credentials, try again!</Alert>
+                )}
+
+                {/* <p>{`${this.props.loginError}`}</p> */}
               </div>
             </form>
           </div>
@@ -99,7 +107,7 @@ class SignInForm extends Component {
 const mapStateToProps = state => {
   return {
     loginStart: state.loginStart,
-    loginError: state.errorMessage
+    loginError: state.loginError
   };
 };
 

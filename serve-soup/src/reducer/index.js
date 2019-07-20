@@ -24,7 +24,7 @@ const initialState = {
   errorMessage: '',
   loginStart: false,
   token: '',
-  loginError: '',
+  loginError: false,
   username: '',
   updating: false,
   addingItem: false
@@ -77,7 +77,8 @@ const reducer = (state = initialState, action) => {
     case LOGIN_START:
       return {
         ...state,
-        loginStart: true
+        loginStart: true,
+        loginError: false
       };
     case LOGIN_SUCCESS:
       console.log('Reducer token', action.payload);
@@ -91,7 +92,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loginStart: false,
-        loginError: action.payload
+        loginError: true
       };
     case GET_ITEMS:
       return {
