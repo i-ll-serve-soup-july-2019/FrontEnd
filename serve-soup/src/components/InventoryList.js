@@ -68,7 +68,7 @@ class InventoryList extends React.Component {
                     color={`${
                       item.quantity > 3
                         ? item.quantity > 5
-                          ? ''
+                          ? ' '
                           : 'warning'
                         : 'danger'
                     }`}
