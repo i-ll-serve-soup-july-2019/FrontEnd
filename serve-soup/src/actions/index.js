@@ -26,12 +26,13 @@ export const addItem = item => dispatch => {
   axiosWithAuth()
     .post(`https://illservesoup.herokuapp.com/api/inventory/`, item)
     // .then(res => dispatch({ type: ADD_ITEM_SUCCESS }))
+    //Creting a delay to display success mesage base on the addingItem state
     .then(
       value =>
         new Promise(resolve => {
           setTimeout(() => {
             dispatch({ type: ADD_ITEM_SUCCESS });
-          }, 3000);
+          }, 2000);
         })
     )
     .catch(err => dispatch({ type: ADD_ITEM_FAILURE, payload: err }));
