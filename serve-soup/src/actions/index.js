@@ -25,7 +25,6 @@ export const addItem = item => dispatch => {
   // console.log("Action object", item);
   axiosWithAuth()
     .post(`https://illservesoup.herokuapp.com/api/inventory/`, item)
-    // .then(res => dispatch({ type: ADD_ITEM_SUCCESS }))
     //Creting a delay to display success mesage base on the addingItem state
     .then(
       value =>
