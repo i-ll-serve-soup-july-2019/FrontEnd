@@ -25,7 +25,15 @@ export const addItem = item => dispatch => {
   // console.log("Action object", item);
   axiosWithAuth()
     .post(`https://illservesoup.herokuapp.com/api/inventory/`, item)
-    .then(res => dispatch({ type: ADD_ITEM_SUCCESS, payload: res }))
+    // .then(res => dispatch({ type: ADD_ITEM_SUCCESS }))
+    .then(
+      value =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            dispatch({ type: ADD_ITEM_SUCCESS });
+          }, 3000);
+        })
+    )
     .catch(err => dispatch({ type: ADD_ITEM_FAILURE, payload: err }));
 };
 //

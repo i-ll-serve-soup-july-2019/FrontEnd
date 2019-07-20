@@ -451,3 +451,9 @@ sup {
 .signup-spinner-container {
   padding-top: 200px
 }
+
+
+/* success message */
+.alert-success {
+  text-align: center;
+}

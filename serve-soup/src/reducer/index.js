@@ -26,7 +26,8 @@ const initialState = {
   token: '',
   loginError: '',
   username: '',
-  updating: false
+  updating: false,
+  addingItem: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,13 +36,13 @@ const reducer = (state = initialState, action) => {
     case ADD_ITEM_START:
       return {
         ...state,
-        isFetching: true
+        addingItem: true
       };
     case ADD_ITEM_SUCCESS:
       // console.log("Reducer add:", action.payload);
       return {
         ...state,
-        isFetching: false
+        addingItem: false
       };
     case DELETE_ITEM:
       return {

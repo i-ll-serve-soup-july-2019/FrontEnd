@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //ReactBootStrap
-import { Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 // import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import { addItem } from '../actions';
 
@@ -30,6 +30,7 @@ class AddItemForm extends React.Component {
   };
 
   submitHandler = e => {
+    console.log('Fetching status: ', this.props.isFetching);
     e.preventDefault();
     // console.log("Category:", this.state.category);
     this.props.addItem({
@@ -46,9 +47,9 @@ class AddItemForm extends React.Component {
   };
 
   render() {
-    if (this.props.isFetching) {
-      return <h1>HEllo</h1>;
-    }
+    // if (this.props.addingItem) {
+    //   return <Alert color="success">New item added successfully!</Alert>;
+    // }
     return (
       <div className="add-item-container">
         <h2>Add item</h2>
@@ -103,8 +104,9 @@ class AddItemForm extends React.Component {
             </Input>
           </FormGroup>
 
-          {this.props.isFetching ? (
-            <Button>HELLO</Button>
+          {/* Display a successful message if item was created or the button */}
+          {this.props.addingItem ? (
+            <Alert color="success">New item added successfully!</Alert>
           ) : (
             <Button>Submit</Button>
           )}
@@ -117,7 +119,7 @@ class AddItemForm extends React.Component {
 const mapStateToProps = state => {
   return {
     username: state.username,
-    isFetching: state.isFetching
+    addingItem: state.addingItem
   };
 };
 
