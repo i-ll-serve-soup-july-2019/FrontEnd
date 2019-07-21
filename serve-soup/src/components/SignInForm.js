@@ -34,6 +34,7 @@ class SignInForm extends Component {
   };
 
   render() {
+    //spinner from login to inventory page
     if (this.props.loginStart) {
       return (
         <div className="sign-up-container">
@@ -52,6 +53,11 @@ class SignInForm extends Component {
 
             {/* Create a successful message when
             user is redirected from the sign-up page */}
+            {this.props.successfulRegistration && (
+              <Alert color="success">
+                <h4>Registration successful, please Login!</h4>
+              </Alert>
+            )}
 
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
@@ -107,7 +113,8 @@ class SignInForm extends Component {
 const mapStateToProps = state => {
   return {
     loginStart: state.loginStart,
-    loginError: state.loginError
+    loginError: state.loginError,
+    successfulRegistration: state.successfulRegistration
   };
 };
 

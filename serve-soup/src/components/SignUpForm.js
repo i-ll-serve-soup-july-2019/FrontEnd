@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SignUpNav from './SignUpNav';
 
 //reactstrap
-import { Label, Input, Spinner, FormGroup } from 'reactstrap';
+import { Label, Input, Spinner, FormGroup, Alert } from 'reactstrap';
 
 import { connect } from 'react-redux';
 
@@ -51,6 +51,12 @@ class SignUpForm extends Component {
         <div className="App__Form">
           <div className="FormCenter ">
             <SignUpNav />
+            {/* Display a unsuccessful message signup failed */}
+            {!this.props.errorMessage && (
+              <Alert color="danger">
+                Registration failed, Please try again!
+              </Alert>
+            )}
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="name">
@@ -64,6 +70,7 @@ class SignUpForm extends Component {
                   name="name"
                   value={this.state.name}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
               <div className="FormField">
@@ -78,6 +85,7 @@ class SignUpForm extends Component {
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
               <div className="FormField">
@@ -92,6 +100,7 @@ class SignUpForm extends Component {
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
               <div className="FormField">
@@ -130,7 +139,6 @@ class SignUpForm extends Component {
 
               <div className="FormField">
                 <button className="FormField__Button mr-20">Sign Up</button>
-                <p>{`${this.props.errorMessage}`}</p>
               </div>
             </form>
           </div>

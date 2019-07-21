@@ -21,7 +21,7 @@ const initialState = {
   isRegistering: false,
   successfulRegistration: false,
   message: '',
-  errorMessage: '',
+  errorMessage: false,
   loginStart: false,
   token: '',
   loginError: false,
@@ -64,20 +64,25 @@ const reducer = (state = initialState, action) => {
         ...state,
         isRegistering: false,
         message: action.payload,
-        successfulRegistration: true
+        successfulRegistration: true,
+        //Passing login error false in case user tried to login
+        //and did not work so went to sign up and when user signup successfully
+        //user will be redirected to login so here we clear the error to try agin
+        loginError: false
       };
     case REGISTER_USER_FAILURE:
       // console.log('message from reducer', action.payload);
       return {
         ...state,
         isRegistering: false,
-        errorMessage: action.payload
+        errorMessage: true
       };
     //Login
     case LOGIN_START:
       return {
         ...state,
         loginStart: true,
+        successfulRegistration: false,
         loginError: false
       };
     case LOGIN_SUCCESS:
