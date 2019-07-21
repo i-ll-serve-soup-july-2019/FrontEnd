@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //ReactBootStrap
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+// import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 import { addItem } from '../actions';
 
 class AddItemForm extends React.Component {
@@ -18,7 +19,7 @@ class AddItemForm extends React.Component {
   componentDidMount() {
     this.setState({
       username: localStorage.getItem('username')
-    })
+    });
   }
 
   //handler for input fields
@@ -29,22 +30,26 @@ class AddItemForm extends React.Component {
   };
 
   submitHandler = e => {
+    console.log('Fetching status: ', this.props.isFetching);
     e.preventDefault();
     // console.log("Category:", this.state.category);
     this.props.addItem({
       item: this.state.itemName,
       units: this.state.category,
       quantity: this.state.quantity,
-      username: this.state.username,
+      username: this.state.username
     });
     this.setState({
       itemName: '',
       category: '',
-      quantity: 0,
+      quantity: 0
     });
   };
 
   render() {
+    // if (this.props.addingItem) {
+    //   return <Alert color="success">New item added successfully!</Alert>;
+    // }
     return (
       <div className="add-item-container">
         <h2>Add item</h2>
@@ -57,6 +62,7 @@ class AddItemForm extends React.Component {
               placeholder="Item Name"
               value={this.state.itemName}
               onChange={this.changeHandler}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -66,6 +72,7 @@ class AddItemForm extends React.Component {
               name="category"
               value={this.state.category}
               onChange={this.changeHandler}
+              required
             >
               <option>Select</option>
               <option>Canned goods</option>
@@ -96,7 +103,13 @@ class AddItemForm extends React.Component {
               <option>10</option>
             </Input>
           </FormGroup>
-          <Button>Submit</Button>
+
+          {/* Display a successful message if item was created or the button */}
+          {this.props.addingItem ? (
+            <Alert color="success">New item added successfully!</Alert>
+          ) : (
+            <Button>Submit</Button>
+          )}
         </Form>
       </div>
     );
@@ -105,7 +118,8 @@ class AddItemForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    username: state.username
+    username: state.username,
+    addingItem: state.addingItem
   };
 };
 

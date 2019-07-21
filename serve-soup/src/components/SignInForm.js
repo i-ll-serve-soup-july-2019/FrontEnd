@@ -5,7 +5,7 @@ import { login } from '../actions';
 
 import { connect } from 'react-redux';
 
-import { Spinner } from 'reactstrap';
+import { Spinner, Alert } from 'reactstrap';
 
 class SignInForm extends Component {
   state = {
@@ -34,6 +34,7 @@ class SignInForm extends Component {
   };
 
   render() {
+    //spinner from login to inventory page
     if (this.props.loginStart) {
       return (
         <div className="sign-up-container">
@@ -52,6 +53,11 @@ class SignInForm extends Component {
 
             {/* Create a successful message when
             user is redirected from the sign-up page */}
+            {this.props.successfulRegistration && (
+              <Alert color="success">
+                <h4>Registration successful, please Login!</h4>
+              </Alert>
+            )}
 
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
@@ -66,6 +72,7 @@ class SignInForm extends Component {
                   name="username"
                   value={this.state.username}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
 
@@ -81,12 +88,19 @@ class SignInForm extends Component {
                   name="password"
                   value={this.state.password}
                   onChange={this.handleChange}
+                  required
                 />
               </div>
 
               <div className="FormField">
                 <button className="FormField__Button mr-20">Sign In</button>
-                <p>{`${this.props.loginError}`}</p>
+
+                {/* Display a successful message if item was created or the button */}
+                {this.props.loginError && (
+                  <Alert color="danger">Wrong Credentials, try again!</Alert>
+                )}
+
+                {/* <p>{`${this.props.loginError}`}</p> */}
               </div>
             </form>
           </div>
@@ -99,7 +113,8 @@ class SignInForm extends Component {
 const mapStateToProps = state => {
   return {
     loginStart: state.loginStart,
-    loginError: state.errorMessage
+    loginError: state.loginError,
+    successfulRegistration: state.successfulRegistration
   };
 };
 

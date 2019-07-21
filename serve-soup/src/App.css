@@ -414,6 +414,7 @@ sup {
   padding: 15px 70px;
   font-size: .8em;
   font-weight: 500;
+  margin-bottom: 30px
 }
 
 .FormField__Link {
@@ -450,4 +451,10 @@ sup {
 
 .signup-spinner-container {
   padding-top: 200px
+}
+
+
+/* success message */
+.alert-success {
+  text-align: center;
 }
