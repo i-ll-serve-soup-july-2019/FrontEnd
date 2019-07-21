@@ -21,12 +21,13 @@ const initialState = {
   isRegistering: false,
   successfulRegistration: false,
   message: '',
-  errorMessage: '',
+  errorMessage: false,
   loginStart: false,
   token: '',
-  loginError: '',
+  loginError: false,
   username: '',
-  updating: false
+  updating: false,
+  addingItem: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,13 +36,13 @@ const reducer = (state = initialState, action) => {
     case ADD_ITEM_START:
       return {
         ...state,
-        isFetching: true
+        addingItem: true
       };
     case ADD_ITEM_SUCCESS:
       // console.log("Reducer add:", action.payload);
       return {
         ...state,
-        isFetching: false
+        addingItem: false
       };
     case DELETE_ITEM:
       return {
@@ -63,20 +64,26 @@ const reducer = (state = initialState, action) => {
         ...state,
         isRegistering: false,
         message: action.payload,
-        successfulRegistration: true
+        successfulRegistration: true,
+        //Passing login error false in case user tried to login
+        //and did not work so went to sign up and when user signup successfully
+        //user will be redirected to login so here we clear the error to try agin
+        loginError: false
       };
     case REGISTER_USER_FAILURE:
       // console.log('message from reducer', action.payload);
       return {
         ...state,
         isRegistering: false,
-        errorMessage: action.payload
+        errorMessage: true
       };
     //Login
     case LOGIN_START:
       return {
         ...state,
-        loginStart: true
+        loginStart: true,
+        successfulRegistration: false,
+        loginError: false
       };
     case LOGIN_SUCCESS:
       console.log('Reducer token', action.payload);
@@ -90,7 +97,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loginStart: false,
-        loginError: action.payload
+        loginError: true
       };
     case GET_ITEMS:
       return {
