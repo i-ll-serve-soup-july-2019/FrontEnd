@@ -102,6 +102,8 @@ table {
 
 .landing-page-content h2 {
   text-align: center;
+  background-color: #beeef5;
+  padding: 5px;
 }
 
 .landing-page-content h3 {
