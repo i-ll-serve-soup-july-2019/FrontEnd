@@ -47,10 +47,10 @@ class InventoryList extends React.Component {
                 <strong>Quantity</strong>
               </th>
               <th>
-                <strong>Item Name</strong>
+                <strong>Units</strong>
               </th>
               <th>
-                <strong>Category</strong>
+                <strong>Item Name</strong>
               </th>
               <th>
                 <strong>Actions</strong>
@@ -77,8 +77,8 @@ class InventoryList extends React.Component {
                     {item.quantity}
                   </Badge>
                 </th>
+                <td>{item.units}</td>
                 <td>{item.item}</td>
-                <td>{item.category}</td>
                 <td>
                   {/* When click edit the index will be pass in the url */}
                   <Link to={`/protected/edititem/${index}`}>
