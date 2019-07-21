@@ -52,7 +52,7 @@ class SignUpForm extends Component {
           <div className="FormCenter ">
             <SignUpNav />
             {/* Display a unsuccessful message signup failed */}
-            {!this.props.errorMessage && (
+            {this.props.errorMessage && (
               <Alert color="danger">
                 Registration failed, Please try again!
               </Alert>
