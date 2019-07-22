@@ -84,21 +84,6 @@ class SignUpForm extends Component {
                 />
               </div>
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="FormField__Input"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
-              </div>
-              <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">
                   E-Mail Address
                 </label>
@@ -109,6 +94,21 @@ class SignUpForm extends Component {
                   placeholder="Enter your email"
                   name="email"
                   value={this.state.email}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="FormField__Input"
+                  placeholder="Enter your password"
+                  name="password"
+                  value={this.state.password}
                   onChange={this.handleChange}
                   required
                 />
