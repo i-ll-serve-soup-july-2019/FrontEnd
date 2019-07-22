@@ -8,6 +8,16 @@ import { connect } from 'react-redux';
 
 import { registerUser } from '../actions';
 
+const dropdownStyle = {
+  background: "#1bff89",
+  width: "85%",
+  border: "none",
+  borderBottom: "1px solid black",
+  borderRadius: "0",
+  margin: "15px auto",
+  paddingLeft: "0"
+};
+
 class SignUpForm extends Component {
   state = {
     email: '',
@@ -113,6 +123,7 @@ class SignUpForm extends Component {
                     name="role"
                     value={this.state.role}
                     onChange={this.handleChange}
+                    style={dropdownStyle}
                   >
                     <option>Select</option>
                     <option>Volunteer</option>
