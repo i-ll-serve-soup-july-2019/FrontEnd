@@ -71,22 +71,25 @@ const LandingPage = () => {
             <p>Get an alert when an item is getting low in your inventory.</p>
           </div>
         </div>
-        <div className="landing-page-team">
         <h2>Our Team</h2>
+        <div className="landing-page-team">
           <div className="landing-page-team-group">
             <h3>Front End</h3>
             <div className="landing-page-team-members">
               <div className="landing-page-team-member">
                 <h4>Ken Ruf</h4>
                 <img src={ken} alt="Ken Ruf"/>
+                <a href="https://github.com/HaBuDeSu">GitHub</a>
               </div>
               <div className="landing-page-team-member">
                 <h4>Fritz Gamboa</h4>
                 <img src={fritz} alt="Fritz Gamboa"/>
+                <a href="https://github.com/fritzgt">GitHub</a>
               </div>
               <div className="landing-page-team-member">
                 <h4>Austin Breaux</h4>
                 <img src={austin} alt="Austin Breaux"/>
+                <a href="https://github.com/austinbro5">GitHub</a>
               </div>
             </div>
           </div>
@@ -96,10 +99,14 @@ const LandingPage = () => {
               <div className="landing-page-team-member">
                 <h4>Jordan Hicks</h4>
                 <img src={jordan} alt="Jordan Hicks"/>
+                <a href="https://github.com/jthicks91">GitHub</a>
+
               </div>
               <div className="landing-page-team-member">
                 <h4>Shota Kikozashvili</h4>
                 <img src={shota} alt="Shota Kikozashvili"/>
+                <a href="https://github.com/ShotaKiko">GitHub</a>
+
               </div>
             </div>
           </div>
