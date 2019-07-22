@@ -74,7 +74,7 @@ class AddItemForm extends React.Component {
               onChange={this.changeHandler}
               required
             >
-              <option>Select</option>
+              <option hidden>Select</option>
               <option>Canned goods</option>
               <option>Dairy</option>
               <option>Dry Goods</option>
@@ -91,7 +91,7 @@ class AddItemForm extends React.Component {
               value={this.state.quantity}
               onChange={this.changeHandler}
             >
-              <option>Select</option>
+              <option hidden>Select</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>

@@ -89,12 +89,13 @@ class EditItem extends React.Component {
               value={this.state.units}
               onChange={this.changeHandler}
             >
-              <option>Select</option>
+              <option hidden>{`${this.state.units}`}</option>
               <option>Canned goods</option>
               <option>Dairy</option>
               <option>Dry Goods</option>
               <option>Spices/Herbs</option>
               <option>Produce</option>
+              <option>Beverage</option>
             </Input>
           </FormGroup>
           <FormGroup>
@@ -105,7 +106,7 @@ class EditItem extends React.Component {
               value={this.state.quantity}
               onChange={this.changeHandler}
             >
-              <option>Select</option>
+              <option hidden>Select</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
