@@ -80,6 +80,7 @@ class AddItemForm extends React.Component {
               <option>Dry Goods</option>
               <option>Spices/Herbs</option>
               <option>Produce</option>
+              <option>Beverage</option>
             </Input>
           </FormGroup>
           <FormGroup>
