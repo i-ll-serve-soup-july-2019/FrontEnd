@@ -8,6 +8,16 @@ import { connect } from 'react-redux';
 
 import { registerUser } from '../actions';
 
+const dropdownStyle = {
+  background: "#1bff89",
+  width: "85%",
+  border: "none",
+  borderBottom: "1px solid black",
+  borderRadius: "0",
+  margin: "15px auto",
+  paddingLeft: "0"
+};
+
 class SignUpForm extends Component {
   state = {
     email: '',
@@ -74,21 +84,6 @@ class SignUpForm extends Component {
                 />
               </div>
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="FormField__Input"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
-              </div>
-              <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">
                   E-Mail Address
                 </label>
@@ -104,6 +99,21 @@ class SignUpForm extends Component {
                 />
               </div>
               <div className="FormField">
+                <label className="FormField__Label" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className="FormField__Input"
+                  placeholder="Enter your password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  required
+                />
+              </div>
+              <div className="FormField">
                 <FormGroup>
                   <Label for="role" className="FormField__Label">
                     Role
@@ -113,6 +123,7 @@ class SignUpForm extends Component {
                     name="role"
                     value={this.state.role}
                     onChange={this.handleChange}
+                    style={dropdownStyle}
                   >
                     <option>Select</option>
                     <option>Volunteer</option>

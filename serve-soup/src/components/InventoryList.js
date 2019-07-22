@@ -92,6 +92,12 @@ class InventoryList extends React.Component {
             </tbody>
           ))}
         </Table>
+        <Link
+          to="/protected/addItem"
+          className="PageSwitcher__Item__Button"
+        >
+          + Add item
+        </Link>
       </div>
     );
   }
