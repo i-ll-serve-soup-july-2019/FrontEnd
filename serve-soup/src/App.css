@@ -289,7 +289,15 @@ sup {
   padding: 10px 25px;
   cursor: pointer;
   font-size: .9em;
+}
 
+.PageSwitcher__Item__Button {
+  background-color: rgba(0, 255, 128, 0.932);
+  color: black;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: .9em;
+  border-radius: 20px;
 }
 
 .PageSwitcher__Item:hover {
