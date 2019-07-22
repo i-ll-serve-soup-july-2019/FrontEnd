@@ -46,10 +46,10 @@ class InventoryList extends React.Component {
                 <strong>Quantity</strong>
               </th>
               <th>
-                <strong>Units</strong>
+                <strong>Item Name</strong>
               </th>
               <th>
-                <strong>Item Name</strong>
+                <strong>Category</strong>
               </th>
               <th>
                 <strong>Actions</strong>
